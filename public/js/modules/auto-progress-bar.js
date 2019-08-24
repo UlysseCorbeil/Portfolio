@@ -1,4 +1,4 @@
-(function ($) {
+module.exports = (function ($) {
 
 	'use strict';
 
@@ -24,6 +24,8 @@
 
 	};
 
-	site.on('scroll', progressBar);
+	var init = function () {
+		site.on('scroll', progressBar);
+	}
 
 })(jQuery);

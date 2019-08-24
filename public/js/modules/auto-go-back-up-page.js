@@ -19,5 +19,7 @@
 		site.on('click', sels.ref, goBackUp);
 	};
 
-	module.export = { init }
+	module.exports('auto-go-back-up-page', {
+		init
+	});
 })(jQuery);
