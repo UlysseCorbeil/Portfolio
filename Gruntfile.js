@@ -3,9 +3,20 @@ module.exports = function (grunt) {
     'use strict';
 
     require('jit-grunt')(grunt);
+    require('load-grunt-tasks')(grunt);
+    require('time-grunt')(grunt);
     grunt.loadNpmTasks('grunt-include-source');
 
+    var jsJsonFiles = grunt.file.readJSON('./public/js/js.json');
+    var fixJsFilePath = function (f) {
+        return './public/' + f;
+    };
+    var jsFiles = jsJsonFiles.modules.map(fixJsFilePath);
+
     grunt.initConfig({
+        app: {
+            scripts: jsFiles
+        },
         less: {
             development: {
                 options: {
@@ -23,20 +34,29 @@ module.exports = function (grunt) {
                 files: ['less/**/*.less'],
                 tasks: ['less'],
                 options: {
-                    nospawn: true
+                    livereload: true
+                }
+            },
+            includeSource: {
+                files: jsFiles,
+                tasks: ['includeSource'],
+                options: {
+                    event: ['added', 'deleted']
                 }
             }
         },
         includeSource: {
             options: {
                 basePath: './public',
+                baseUrl: '',
+                ordering: 'top-down',
                 templates: {
                     html: {
-                        js: '<script src="{filePath}"</script>'
+                        js: '<script src="{' + jsFiles + '}"></script>'
                     }
                 }
             },
-            myTarget: {
+            target: {
                 files: {
                     './public/index.html': './public/index.html'
                 }

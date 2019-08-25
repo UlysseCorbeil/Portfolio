@@ -1,4 +1,31 @@
 @import url('https://rsms.me/inter/inter.css');
+.links {
+  text-decoration: none;
+  color: inherit;
+}
+.flexbox {
+  display: flex;
+  flex-flow: row wrap;
+}
+.justify-content .center {
+  justify-content: center;
+}
+.justify-content .space-between {
+  justify-content: space-between;
+}
+.border-vertical-black {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+.position .absolute .fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.transform .translateY .quarter {
+  transform: translateY(25%);
+}
 html {
   font-family: 'Inter', sans-serif;
 }
@@ -7,6 +34,92 @@ html {
     font-family: 'Inter var', sans-serif;
   }
 }
-.header-ctn {
-  background-color: #30B679;
+html {
+  font-size: 0.78125vw;
+  --type-factor: 2;
+}
+@media screen and (min-width: 768px) {
+  html {
+    --type-factor: 1.25;
+  }
+}
+@media screen and (min-width: 1280px) {
+  html {
+    font-size: 10px;
+    --type-factor: 1;
+  }
+}
+.font-size-small {
+  font-size: calc(3rem * var(--type-factor));
+}
+.font-size-big {
+  font-size: calc(8rem * var(--type-factor));
+}
+.font-size-bigger {
+  font-size: calc(10rem * var(--type-factor));
+}
+.font-size-biggest {
+  font-size: calc(15rem * var(--type-factor));
+}
+.font-size-large {
+  font-size: calc(20rem * var(--type-factor));
+}
+.project-list .project-item {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+.project-list .project-item .inner-ctn {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+.project-list .project-item .inner-ctn .header {
+  display: flex;
+  flex-flow: row wrap;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.project-list .project-item .inner-ctn .header .number {
+  font-size: calc(3rem * var(--type-factor));
+}
+.project-list .project-item .inner-ctn .header .name {
+  padding-left: 2rem;
+  font-size: calc(8rem * var(--type-factor));
+}
+.project-list .project-item .inner-ctn .item-ctn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-size: calc(3rem * var(--type-factor));
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.header-ctn .item .inner-ctn .header .intro .surtitle {
+  font-size: calc(3rem * var(--type-factor));
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+.header-ctn .item .inner-ctn .header .intro .main-ctn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: -10%;
+}
+.header-ctn .item .inner-ctn .header .intro .main-ctn .title {
+  font-size: calc(15rem * var(--type-factor));
+  transform: translateY(25%);
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+.header-ctn .item .inner-ctn .header .intro .main-ctn .image {
+  width: 50%;
+}
+.page {
+  padding-left: 10rem;
+  padding-right: 10rem;
+  text-decoration: none;
+  color: inherit;
 }

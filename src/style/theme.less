@@ -1,13 +1,112 @@
-@black: #000000;
-@grey-1: #333333;
-@grey-2: #f1f1f1;
-@red: #EE0032;
-@orange: #F2994A;
-@yellow: #FFBC01;
-@green: #30B679;
-@blue: #0C29FF;
+@import './vars-colors.less';
+@import './vars-spacing.less';
+@import './vars-screen.less';
 
-// Padding
-@padding-top-thin: {
-	padding-top: 5rem;
-};
+// custom
+.links{
+	text-decoration: none;
+	color: inherit;
+}
+
+// flexbox attr
+.flexbox{
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.justify-content {
+	.center {
+		justify-content: center;
+	}
+	.space-between {
+		justify-content: space-between;
+	}
+}
+
+// borders
+.border-vertical-black {
+	border-top: 1px solid @black;
+	border-bottom: 1px solid @black;
+}
+
+// padding
+.padding {
+	.vertical {
+		.micro(@padding-top-micro: @micro, @padding-bottom-micro: @micro){
+			padding-top: @padding-top-micro;
+			padding-bottom: @padding-bottom-micro;
+		}
+		.thin(@padding-top-thin: @thin, @padding-bottom-thin: @thin){
+			padding-top: @padding-top-thin;
+			padding-bottom: @padding-bottom-thin;
+		}
+		.broad(@padding-top-broad: @broad, @padding-bottom-broad: @broad){
+			padding-top: @padding-top-broad;
+			padding-bottom: @padding-bottom-broad;
+		}
+	}
+	.left {
+		.micro(@padding-left-micro: @micro){
+			padding-left: @padding-left-micro;
+		}
+	}
+	.horizontal {
+		.security(@padding-left-security: @security, @padding-right-security: @security){
+			padding-left: @padding-left-security;
+			padding-right: @padding-right-security;
+		}
+		.security-inner-ctn(@padding-left-security-inner-ctn: @security-inner-ctn, @padding-right-security-inner-ctn: @security-inner-ctn){
+			padding-left: @padding-left-security-inner-ctn;
+			padding-right: @padding-right-security-inner-ctn;
+		}
+	}
+}
+
+// margin
+.margin {
+	.vertical {
+		.broadest(@margin-top-broadest: @broadest, @margin-bottom-broadest: @broadest){
+			margin-top: @margin-top-broadest;
+			margin-bottom: @margin-bottom-broadest;
+		}
+	}
+	.top {
+		.minus {
+			.tenth(@margin-top-minus-tenth: @1_10){
+				margin-top: -@margin-top-minus-tenth;
+			}
+		}
+	}
+}
+
+.width {
+	.half(@width-half: @1_2){
+		width: @width-half;
+	}
+	.quarter(@width-quarter: @1_4){
+		width: @width-quarter;
+	}
+	.full(@width-full: @full){
+		width: @width-full;
+	}
+}
+
+
+.position {
+	.absolute {
+		.fill {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+}
+
+.transform {
+	.translateY {
+		.quarter {
+			transform: translateY(25%);
+		}
+	}
+}

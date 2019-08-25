@@ -6,7 +6,6 @@
 
         // find image
         var img = $(this).find('.imageProjet_list');
-        var name = $(this).find('.name');
 
         // find src
         var data_src = img.data('src');
@@ -14,8 +13,6 @@
         $(this).mousemove(function (e) {
 
             if (!!img.length) {
-
-                $(this).find('div > span').css('color', 'black');
 
                 img.attr('src', data_src);
 
@@ -38,7 +35,6 @@
             }
 
         }).mouseleave(function () {
-            $(this).find('div > span').css('color', '#5f6472');
             img.hide();
 
         });

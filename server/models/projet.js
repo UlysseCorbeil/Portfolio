@@ -7,6 +7,10 @@ const mongoose = require('mongoose'),
 // Le schema de données de ma BDD
 let projetSchema = Schema({
 
+    id: {
+        type: Number,
+        require: true
+    },
     nomProjet: {
         type: String,
         required: true
@@ -19,19 +23,16 @@ let projetSchema = Schema({
         type: String,
         required: true
     },
-    descriptionProjet: {
+    roles: {
         type: String,
         required: true
-    },
-    noms: {
-        type: Array,
-        required: true
-    },
-    roles: {
-        type: Array,
-        required: true
     }
-});
+},
+    {
+        collection: 'projets'
+    }
+);
+
 
 // Exportation du module pour qu'on puisse y accéder dans le fichier principal
 const Projets = module.exports = mongoose.model('projets', projetSchema);

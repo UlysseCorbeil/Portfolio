@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 
 // views
 import ProjectList from './views/ProjectList';
+import Header from './views/Header';
 
 class App extends Component {
 
     // initialize our state
     state = {
-        data: [],
+        dataHeader: [],
+        dataProjects: [],
         id: 0,
         message: null,
         intervalIsSet: false,
@@ -17,15 +19,17 @@ class App extends Component {
     };
 
     componentDidMount() {
-        this.getDataFromDb();
+
+        // data init
+        this.getProjectsFromDb();
+        this.getHeaderInfoFromDb();
+
         if (!this.state.intervalIsSet) {
             let interval = setInterval(this.getDataFromDb, 1000);
             this.setState({ intervalIsSet: interval });
         }
     }
 
-    // never let a process live forever
-    // always kill a process everytime we are done using it
     componentWillUnmount() {
         if (this.state.intervalIsSet) {
             clearInterval(this.state.intervalIsSet);
@@ -33,16 +37,30 @@ class App extends Component {
         }
     }
 
-    getDataFromDb = () => {
-        fetch('http://localhost:3001/api/getData')
+    getProjectsFromDb = () => {
+        fetch('http://localhost:3001/api/getProjetsData')
             .then((data) => data.json())
-            .then((res) => this.setState({ data: res.data }));
+            .then((res) => this.setState({ dataProjects: res.data }));
     }
+
+    getHeaderInfoFromDb = async () => {
+        fetch('http://localhost:3001/api/getHeaderInfo')
+            .then((data) => data.json())
+            .then((res) => this.setState({ dataHeader: res.data }));
+    }
+
 
     render() {
         return (
-            <div className="header-wrapper">
-                <ProjectList data={this.state.data} />
+            <div id="site">
+                <div className="page">
+                    <div className="header-wrapper">
+                        <Header data={this.state.dataHeader} />
+                    </div>
+                    <div className="project-list-wrapper">
+                        <ProjectList data={this.state.dataProjects} />
+                    </div>
+                </div>
             </div>
         )
     }

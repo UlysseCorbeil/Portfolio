@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "async": "^3.1.0",
     "axios": "^0.19.0",
     "concurrently": "^4.1.2",
     "eslint": "^6.2.1",
@@ -37,13 +38,20 @@
   "devDependencies": {
     "css-loader": "^3.2.0",
     "grunt": "^1.0.4",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
+    "grunt-filerev": "^2.3.1",
     "grunt-include-source": "^1.1.0",
+    "grunt-usemin": "^3.1.1",
     "jit-grunt": "^0.10.0",
     "less": "^3.10.2",
     "less-loader": "^5.0.0",
-    "style-loader": "^1.0.0"
+    "load-grunt-tasks": "^5.1.0",
+    "style-loader": "^1.0.0",
+    "time-grunt": "^2.0.0"
   },
   "keywords": [],
   "author": "",

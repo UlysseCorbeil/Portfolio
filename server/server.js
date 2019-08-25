@@ -3,13 +3,22 @@ const express = require('express');
 var cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const Data = require('./projet');
 const compression = require('compression');
 
+//data
+const projets_data = require('./models/projet');
+const header_data = require('./models/header');
+
+// api
 const API_PORT = 3001;
 const app = new express();
 app.use(cors());
 const router = express.Router();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression());
+app.use(bodyParser.json());
+app.use(logger('dev'));
 
 const dbRoute = 'mongodb://localhost:27017/Portfolio';
 
@@ -20,26 +29,30 @@ mongoose.connect(dbRoute, {
 
 let db = mongoose.connection;
 
-db.once('open', () => console.log('connected to') + Data);
+console.log(db.collections);
 
-// checks if connection with the database is successful
+db.once('open', () => console.log('connected'));
+
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// (optional) only made for logging and
-// bodyParser, parses the request body to be a readable json format
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(compression());
-app.use(bodyParser.json());
-app.use(logger('dev'));
-
-// this is our get method
-// this method fetches all available data in our database
-router.get('/getData', (req, res) => {
-    Data.find((err, data) => {
-        if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true, data: data });
-    });
+router.get('/getProjetsData', (req, res) => {
+    projets_data.find(
+        async (err, data) => {
+            if (err) return await res.json({ success: false, error: err });
+            return await res.json({ success: true, data: data });
+        }
+    );
 });
+
+router.get('/getHeaderInfo', (req, res) => {
+    header_data.find(
+        async (err, data) => {
+            if (err) return await res.json({ success: false, error: err });
+            return await res.json({ success: true, data: data });
+        }
+    );
+});
+
 
 // append /api for our http requests
 app.use('/api', router);
