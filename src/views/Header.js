@@ -1,5 +1,8 @@
 import React from 'react';
 
+import LineSvg from './SVG';
+import blueCircle from './SVG';
+
 import image from '../images/image_moi.jpg';
 
 class Header extends React.Component {
@@ -19,6 +22,9 @@ class Header extends React.Component {
 
                                 <div className='intro'>
                                     <div className='surtitle'>{res.surtitle}</div>
+                                    <div className='surtitle-two'>{res.surtitleTwo}</div>
+                                    <LineSvg />
+                                    <blueCircle />
                                     <div className='main-ctn'>
                                         <div className='title'>{res.title}</div>
                                         <img className='image' src={image} alt='Ulysse' />

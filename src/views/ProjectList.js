@@ -10,8 +10,8 @@ class ProjectList extends React.Component {
         return (
             <div className="project-list">
                 {this.props.data.map((res, i) => (
-                    <a className="links" href={'/projets/' + res.id}>
-                        <div className="project-item js-hover-project" key={i}>
+                    <a className="links" href={'/projets/' + res.id} >
+                        <div className="project-item" key={i}>
                             <div className="inner-ctn">
                                 <div className="header">
                                     <div className="number">0{res.id + 1}</div>

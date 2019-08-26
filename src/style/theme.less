@@ -60,6 +60,19 @@
 			padding-right: @padding-right-security-inner-ctn;
 		}
 	}
+	.top {
+		.micro(@padding-top-micro: @micro){
+			padding-top: @padding-top-micro;
+		}
+		.broad(@padding-top-broad: @broad){
+			padding-top: @padding-top-broad;
+		}
+	}
+	.bottom {
+		.broad(@padding-bottom-broad: @broad){
+			padding-bottom: @padding-bottom-broad;
+		}
+	}
 }
 
 // margin
@@ -86,6 +99,9 @@
 	.quarter(@width-quarter: @1_4){
 		width: @width-quarter;
 	}
+	.quarter-full(@width-quarter-full: @3_4){
+		width: @width-quarter-full;
+	}
 	.full(@width-full: @full){
 		width: @width-full;
 	}
@@ -94,6 +110,7 @@
 
 .position {
 	.absolute {
+		position: absolute;
 		.fill {
 			position: absolute;
 			top: 0;
@@ -109,4 +126,8 @@
 			transform: translateY(25%);
 		}
 	}
+}
+
+.cursor-default {
+	cursor: default;
 }

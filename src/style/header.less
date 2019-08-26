@@ -3,21 +3,35 @@
         .inner-ctn {
             .header {
                 .intro {
-                    .surtitle {
-                        .font-size-small;
-                        .padding .vertical .broad;
+                    .svg-icon {
+                        .position .absolute;
+                        top: 75%;
+                        transform: scale(1.4);
+                        left: -15%;
+                        pointer-events: none;
+                        z-index: 1;
+                    }
+                    .surtitle {
+                        .font-size-medium;
+                        .padding .top .broad;
+                    }
+                    .surtitle-two {
+                        .padding .top .micro;
+                        .font-size-medium;
+                        .padding .bottom .broad;
                     }
                     .main-ctn {
                         .flexbox;
                         .justify-content .center;
                         .margin .top .minus .tenth;
                         .title {
-                            .font-size-biggest;
+                            .font-size-large;
                             .transform .translateY .quarter;
-                            .padding .horizontal .security-inner-ctn;
+                            z-index: 4;
                         }
                         .image {
-                            .width .half;
+                            .width .quarter-full;
+                            z-index: 3;
                         }
                     }
                     
