@@ -9,8 +9,10 @@ class ProjectList extends React.Component {
     render() {
         return (
             <div className="project-list">
+                <div className="sectionTitle">Project I've worked on</div>
                 {this.props.data.map((res, i) => (
-                    <a className="links" href={'/projets/' + res.id} >
+                    <a className="links js-hover-project" href={'/projets/' + res.id}>
+                        <img data-src="../images/vlec.png" className="imageProjet_list" />
                         <div className="project-item" key={i}>
                             <div className="inner-ctn">
                                 <div className="header">

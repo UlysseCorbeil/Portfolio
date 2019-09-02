@@ -74,6 +74,13 @@ html {
   font-size: calc(20rem * var(--type-factor));
   line-height: 100%;
 }
+.project-list {
+  padding-top: 15rem;
+}
+.project-list .sectionTitle {
+  font-size: calc(4rem * var(--type-factor));
+  margin-bottom: -7rem;
+}
 .project-list .project-item {
   margin-top: 15rem;
   margin-bottom: 15rem;
@@ -107,15 +114,54 @@ html {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.header-ctn .item .inner-ctn .header .intro .svg-icon {
-  position: absolute;
-  top: 75%;
-  transform: scale(1.4);
-  left: -15%;
-  pointer-events: none;
-  z-index: 1;
+.header-ctn .item .inner-ctn .header .intro .img-container {
+  position: relative;
+  display: inline-block;
+  height: auto;
 }
-.header-ctn .item .inner-ctn .header .intro .svg-icon .fill {
+.header-ctn .item .inner-ctn .header .intro .svgLine {
+  position: absolute;
+  right: 50%;
+  top: -25%;
+  overflow: visible;
+  display: block;
+  padding-bottom: 75%;
+  pointer-events: none;
+  z-index: -1;
+}
+.header-ctn .item .inner-ctn .header .intro .svgLine .fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.header-ctn .item .inner-ctn .header .intro .blueCircle {
+  position: absolute;
+  left: 75%;
+  top: -12%;
+  overflow: visible;
+  display: block;
+  padding-bottom: 30%;
+  pointer-events: none;
+  z-index: -1;
+}
+.header-ctn .item .inner-ctn .header .intro .blueCircle .fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.header-ctn .item .inner-ctn .header .intro .RedCircle {
+  position: absolute;
+  left: -15%;
+  top: 75%;
+  overflow: visible;
+  display: block;
+  padding-bottom: 30%;
+  pointer-events: none;
+  z-index: -1;
+}
+.header-ctn .item .inner-ctn .header .intro .RedCircle .fill {
   position: absolute;
   top: 0;
   left: 0;
@@ -147,6 +193,7 @@ html {
   z-index: 3;
 }
 .page {
+  max-width: 1920px;
   padding-left: 10rem;
   padding-right: 10rem;
   text-decoration: none;

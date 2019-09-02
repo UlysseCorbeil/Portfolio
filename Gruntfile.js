@@ -36,13 +36,6 @@ module.exports = function (grunt) {
                 options: {
                     livereload: true
                 }
-            },
-            includeSource: {
-                files: jsFiles,
-                tasks: ['includeSource'],
-                options: {
-                    event: ['added', 'deleted']
-                }
             }
         },
         includeSource: {

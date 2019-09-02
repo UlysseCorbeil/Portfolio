@@ -1,7 +1,8 @@
 import React from 'react';
 
-import LineSvg from './SVG';
-import blueCircle from './SVG';
+import LineSvg from '../svg/LineSVG';
+import BlueCircle from '../svg/BlueCircle';
+import RedCircle from '../svg/RedCircle';
 
 import image from '../images/image_moi.jpg';
 
@@ -23,11 +24,14 @@ class Header extends React.Component {
                                 <div className='intro'>
                                     <div className='surtitle'>{res.surtitle}</div>
                                     <div className='surtitle-two'>{res.surtitleTwo}</div>
-                                    <LineSvg />
-                                    <blueCircle />
                                     <div className='main-ctn'>
                                         <div className='title'>{res.title}</div>
-                                        <img className='image' src={image} alt='Ulysse' />
+                                        <div className="img-container">
+                                            <img className='image' src={image} alt='Ulysse' />
+                                            <BlueCircle />
+                                            <LineSvg />
+                                            <RedCircle />
+                                        </div>
                                     </div>
                                 </div>
 
