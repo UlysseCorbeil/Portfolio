@@ -7,31 +7,6 @@
   display: flex;
   flex-flow: row wrap;
 }
-.justify-content .center {
-  justify-content: center;
-}
-.justify-content .space-between {
-  justify-content: space-between;
-}
-.border-vertical-black {
-  border-top: 1px solid #000000;
-  border-bottom: 1px solid #000000;
-}
-.position .absolute {
-  position: absolute;
-}
-.position .absolute .fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-.transform .translateY .quarter {
-  transform: translateY(25%);
-}
-.cursor-default {
-  cursor: default;
-}
 html {
   font-family: 'Inter', sans-serif;
 }
@@ -55,37 +30,18 @@ html {
     --type-factor: 1;
   }
 }
-.font-size-small {
-  font-size: calc(3rem * var(--type-factor));
-}
-.font-size-medium {
-  font-size: calc(4rem * var(--type-factor));
-}
-.font-size-big {
-  font-size: calc(8rem * var(--type-factor));
-}
-.font-size-bigger {
-  font-size: calc(10rem * var(--type-factor));
-}
-.font-size-biggest {
-  font-size: calc(15rem * var(--type-factor));
-}
-.font-size-large {
-  font-size: calc(20rem * var(--type-factor));
-  line-height: 100%;
-}
 .project-list {
   padding-top: 15rem;
 }
 .project-list .sectionTitle {
   font-size: calc(4rem * var(--type-factor));
   margin-bottom: -7rem;
+  padding-bottom: 7rem;
 }
 .project-list .project-item {
+  cursor: pointer;
   margin-top: 15rem;
   margin-bottom: 15rem;
-  padding-left: 8rem;
-  padding-right: 8rem;
 }
 .project-list .project-item .inner-ctn {
   padding-top: 2rem;
@@ -105,6 +61,18 @@ html {
 .project-list .project-item .inner-ctn .header .name {
   padding-left: 2rem;
   font-size: calc(8rem * var(--type-factor));
+}
+.project-list .project-item .inner-ctn .project-image {
+  width: 30%;
+  opacity: 0;
+  position: absolute;
+  left: 25%;
+  transform: scale(0.8);
+  transition: opacity 750ms cubic-bezier(0.19, 1, 0.22, 1), transform 300ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.project-list .project-item .inner-ctn .project-image.active {
+  opacity: 1;
+  transform: scale(1);
 }
 .project-list .project-item .inner-ctn .item-ctn {
   display: flex;
@@ -129,12 +97,6 @@ html {
   pointer-events: none;
   z-index: -1;
 }
-.header-ctn .item .inner-ctn .header .intro .svgLine .fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
 .header-ctn .item .inner-ctn .header .intro .blueCircle {
   position: absolute;
   left: 75%;
@@ -145,12 +107,6 @@ html {
   pointer-events: none;
   z-index: -1;
 }
-.header-ctn .item .inner-ctn .header .intro .blueCircle .fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
 .header-ctn .item .inner-ctn .header .intro .RedCircle {
   position: absolute;
   left: -15%;
@@ -160,12 +116,6 @@ html {
   padding-bottom: 30%;
   pointer-events: none;
   z-index: -1;
-}
-.header-ctn .item .inner-ctn .header .intro .RedCircle .fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 .header-ctn .item .inner-ctn .header .intro .surtitle {
   font-size: calc(4rem * var(--type-factor));
@@ -194,8 +144,8 @@ html {
 }
 .page {
   max-width: 1920px;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
   text-decoration: none;
   color: inherit;
   cursor: default;

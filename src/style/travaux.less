@@ -1,36 +1,59 @@
 .project-list {
-    .padding .top .broadest;
+    padding-top: @broadest;
     .sectionTitle {
-        .font-size-medium;
-        .margin .bottom .minus .broad;
+        font-size: @medium;
+        margin-bottom: -@broad;
+        padding-bottom: @broad;
     }
     .project-item {
 
-        .margin .vertical .broadest;
-        .padding .horizontal .security-inner-ctn;
+        cursor: pointer;
+
+        margin-bottom: @broadest;
+        margin-top: @broadest;
+        margin-top: @broadest;
+        margin-bottom: @broadest;
 
         .inner-ctn {
 
-            .padding .vertical .micro;
-            .border-vertical-black;
+            padding-top: @micro;
+            padding-bottom: @micro;
+            border-top: 1px solid @black;
+            border-bottom: 1px solid @black;
 
             .header {
                 .flexbox;
-                .padding .vertical .thin;
+                padding-top: @thin;
+                padding-bottom: @thin;
                 .number {
-                    .font-size-small;
+                    font-size: @small;
                 }
                 .name {
-                    .padding .left .micro;
-                    .font-size-big;
+                    padding-left: @micro;
+                    font-size: @big;
+                }
+            }
+
+            .project-image {
+                width: 30%;
+                opacity: 0;
+                position: absolute;
+                left: 25%;
+                transform: scale(0.8);
+                transition: opacity @duration-long @ease-out-expo, transform @duration-short @ease-out-expo;
+
+                &.active {
+                    opacity: 1;
+                    transform: scale(1);
                 }
             }
             
             .item-ctn {
                 .flexbox;
-                .justify-content .space-between;
-                .font-size-small;
-                .padding .vertical .micro;
+                justify-content: space-between;
+                font-size: @small;
+                padding-top: @micro;
+                padding-bottom: @micro;
             }
         }
     }

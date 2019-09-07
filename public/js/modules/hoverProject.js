@@ -1,10 +1,8 @@
-import jQuery from 'jquery';
-
 (function ($) {
 
     'use strict';
 
-    var site = document.querySelectorAll('#site');
+    var site = $('#site');
 
     var sels = {
         ref: '.js-hover-project',
