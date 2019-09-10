@@ -1,5 +1,32 @@
 .header-ctn {
     .item {
+        .loadingSVG{
+            .flexbox;
+            stroke-dasharray: 500;
+            stroke-dashoffset: 100;
+            animation: dash 5s linear infinite;
+            right: 0%;
+            top: 0%;
+            .flexbox;
+            overflow: visible;
+            display: block;
+            padding-bottom: 60%; 
+            pointer-events: none;
+            z-index: 10;
+        }
+          
+        @keyframes dash {
+            0% {
+              stroke-dashoffset: 1000;
+            }
+
+            50% {
+                stroke-dashoffset: 500;
+            }
+            100% {
+              stroke-dashoffset: 0;
+            }
+        }
         .inner-ctn {
             .header {
                 .intro {

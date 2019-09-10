@@ -4,16 +4,7 @@ class HoverProject extends React.Component {
 
     state = {
         isHovered: false,
-        xPos: 0,
-        yPos: 0
     };
-
-    onMouseMove(e) {
-        this.setState({
-            xPos: e.screenX,
-            yPos: e.screenY
-        });
-    }
 
     onMouseEnter() {
         this.setState({ isHovered: true });
@@ -27,9 +18,9 @@ class HoverProject extends React.Component {
             <div
                 onMouseEnter={this.onMouseEnter.bind(this)}
                 onMouseLeave={this.onMouseLeave.bind(this)}
-                onMouseMove={this.onMouseMove.bind(this)}
+                className="project-item"
             >
-                {this.props.children(this.state.isHovered, this.state.xPos, this.state.yPos)}
+                {this.props.children(this.state.isHovered)}
             </div >
         );
     }
