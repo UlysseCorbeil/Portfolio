@@ -20,7 +20,7 @@ class FollowMouse extends React.Component {
                 onMouseMove={this.onMouseMove.bind(this)}
                 className="img-ctn"
             >
-                {this.props.children(this.state.xPos, this.state.yPos)}
+                {/* {this.props.children(this.state.xPos, this.state.yPos)} */}
             </div >
         );
     }
