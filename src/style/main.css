@@ -189,7 +189,7 @@ html {
   font-size: calc(8rem * var(--type-factor));
 }
 .project-list .project-item .inner-ctn .project-image {
-  width: 30%;
+  width: 40rem;
   opacity: 0;
   position: absolute;
   left: 25%;

@@ -17,7 +17,7 @@ class App extends Component {
         idToDelete: null,
         idToUpdate: null,
         objectToUpdate: null,
-        done: undefined,
+        done: undefined
     };
 
     componentDidMount() {
@@ -26,14 +26,14 @@ class App extends Component {
         this.getProjectsFromDb();
         this.getHeaderInfoFromDb();
 
-        if (!this.state.intervalIsSet) {
+        if (!!!this.state.intervalIsSet) {
             let interval = setInterval(this.getDataFromDb, 1000);
             this.setState({ intervalIsSet: interval });
         }
     }
 
     componentWillUnmount() {
-        if (this.state.intervalIsSet) {
+        if (!!this.state.intervalIsSet) {
             clearInterval(this.state.intervalIsSet);
             this.setState({ intervalIsSet: null });
         }
@@ -44,7 +44,7 @@ class App extends Component {
             fetch('http://localhost:3001/api/getProjetsData')
                 .then((data) => {
                     setTimeout(() => {
-                        this.setState({ done: true });
+                        this.setState({ done: true, percent: data });
                     }, 1000);
                     return data.json();
                 })
@@ -57,7 +57,7 @@ class App extends Component {
             fetch('http://localhost:3001/api/getHeaderInfo')
                 .then((data) => {
                     setTimeout(() => {
-                        this.setState({ done: true });
+                        this.setState({ done: true, percent: data });
                     }, 1000);
                     return data.json();
                 })
