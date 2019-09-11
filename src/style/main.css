@@ -208,31 +208,6 @@ html {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.header-ctn .item .loadingSVG {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 100;
-  animation: dash 5s linear infinite;
-  right: 0%;
-  top: 0%;
-  display: flex;
-  flex-flow: row wrap;
-  overflow: visible;
-  display: block;
-  padding-bottom: 60%;
-  pointer-events: none;
-  z-index: 10;
-}
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 1000;
-  }
-  50% {
-    stroke-dashoffset: 500;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
 .header-ctn .item .inner-ctn .header .intro .img-container {
   position: relative;
   display: inline-block;
@@ -292,6 +267,34 @@ html {
 .header-ctn .item .inner-ctn .header .intro .main-ctn .image {
   width: 75%;
   z-index: 3;
+}
+.site .loading-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+.site .loadingSVG {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 100;
+  animation: dash 5s linear infinite;
+  overflow: visible;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
+  z-index: 10;
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  50% {
+    stroke-dashoffset: 500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 .page {
   width: 100%;

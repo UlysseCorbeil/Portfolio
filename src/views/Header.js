@@ -3,7 +3,6 @@ import React from 'react';
 import LineSvg from '../svg/LineSVG';
 import BlueCircle from '../svg/BlueCircle';
 import RedCircle from '../svg/RedCircle';
-import LoadingSVG from '../svg/LoadingSVG';
 
 import image from '../images/image_moi.jpg';
 
@@ -19,8 +18,6 @@ class Header extends React.Component {
                 {this.props.data.map((res, i) => (
 
                     <div className='item' key={i}>
-                        <LoadingSVG />
-
                         <div className='inner-ctn'>
                             <div className='header'>
 

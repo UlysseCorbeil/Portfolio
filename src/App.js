@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // views
 import ProjectList from './views/ProjectList';
 import Header from './views/Header';
+import LoadingSVG from './svg/LoadingSVG';
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
         idToDelete: null,
         idToUpdate: null,
         objectToUpdate: null,
+        done: undefined,
     };
 
     componentDidMount() {
@@ -37,31 +39,51 @@ class App extends Component {
         }
     }
 
-    getProjectsFromDb = () => {
-        fetch('http://localhost:3001/api/getProjetsData')
-            .then((data) => data.json())
-            .then((res) => this.setState({ dataProjects: res.data }));
+    getProjectsFromDb = async () => {
+        setTimeout(() => {
+            fetch('http://localhost:3001/api/getProjetsData')
+                .then((data) => {
+                    setTimeout(() => {
+                        this.setState({ done: true });
+                    }, 1000);
+                    return data.json();
+                })
+                .then((res) => this.setState({ dataProjects: res.data }));
+        }, 1200);
     }
 
     getHeaderInfoFromDb = async () => {
-        fetch('http://localhost:3001/api/getHeaderInfo')
-            .then((data) => data.json())
-            .then((res) => this.setState({ dataHeader: res.data }));
+        setTimeout(() => {
+            fetch('http://localhost:3001/api/getHeaderInfo')
+                .then((data) => {
+                    setTimeout(() => {
+                        this.setState({ done: true });
+                    }, 1000);
+                    return data.json();
+                })
+                .then((res) => this.setState({ dataHeader: res.data }));
+        }, 1200);
     }
 
 
     render() {
         return (
-            <div id="site">
-                <div className="page">
-                    <div className="header-wrapper">
-                        <Header data={this.state.dataHeader} />
-                    </div>
-                    <div className="project-list-wrapper">
-                        <ProjectList data={this.state.dataProjects} />
-                    </div>
-                </div>
-            </div>
+            <div className="site" >
+                {
+                    !!!this.state.done ? (
+                        <LoadingSVG />
+                    ) : (
+                            <div className="page">
+                                <div className="header-wrapper">
+                                    <Header data={this.state.dataHeader} />
+                                </div>
+                                <div className="project-list-wrapper">
+                                    <ProjectList data={this.state.dataProjects} />
+                                </div>
+                            </div>
+                        )
+                }
+            </div >
         )
     }
 
