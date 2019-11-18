@@ -9,7 +9,7 @@ let headerSchema = Schema({
 
     id: {
         type: Number,
-        require: true
+        required: true
     },
     title: {
         type: String,

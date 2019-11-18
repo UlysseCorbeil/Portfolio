@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 // Le schema de données de ma BDD
-let projetSchema = Schema({
+let workSchema = Schema({
 
     id: {
         type: Number,
@@ -15,29 +15,37 @@ let projetSchema = Schema({
         type: String,
         required: true
     },
-    categProjet: {
+    year: {
         type: String,
         required: true
     },
-    date: {
+    nameLibelle: {
         type: String,
         required: true
     },
-    roles: {
+    name: {
+        type: Array,
+        required: true
+    },
+    type: {
         type: String,
         required: true
-    }
+    },
+    text: {
+        type: String,
+        required: true
+    },
 },
     {
-        collection: 'projets'
+        collection: 'works'
     }
 );
 
 
 // Exportation du module pour qu'on puisse y accéder dans le fichier principal
-const Projets = module.exports = mongoose.model('projets', projetSchema);
+const Works = module.exports = mongoose.model('works', workSchema);
 
 // fonction qui permet de recevoir les données dans le fichier principal
-module.exports.getProjets = (callback) => {
-    Projets.find(callback);
+module.exports.getWorks = (callback) => {
+    Works.find(callback);
 };

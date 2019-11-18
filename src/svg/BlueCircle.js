@@ -14,7 +14,7 @@ const BlueCircle = ({
             className={`svg-icon blueCircle ${className || ""}`}
             preserveAspectRatio="xMidYMin slice"
             xmlnsXlink="http://www.w3.org/1999/xlink">
-            <circle cx="" cy="4" r="4" fill="#0C29FF" />
+            <circle cx="0" cy="4" r="4" fill="#0C29FF" />
         </svg>
     );
 

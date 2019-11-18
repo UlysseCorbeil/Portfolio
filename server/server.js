@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const compression = require('compression');
@@ -8,6 +8,8 @@ const compression = require('compression');
 //data
 const projets_data = require('./models/projet');
 const header_data = require('./models/header');
+const section_title = require('./models/sectionTitle');
+const works_data = require('./models/works');
 
 // api
 const API_PORT = 3001;
@@ -29,14 +31,19 @@ mongoose.connect(dbRoute, {
 
 let db = mongoose.connection;
 
-console.log(db.collections);
-
-db.once('open', () => console.log('connected'));
-
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 router.get('/getProjetsData', (req, res) => {
     projets_data.find(
+        async (err, data) => {
+            if (err) return await res.json({ success: false, error: err });
+            return await res.json({ success: true, data: data });
+        }
+    );
+});
+
+router.get('/getSectionTitle', (req, res) => {
+    section_title.find(
         async (err, data) => {
             if (err) return await res.json({ success: false, error: err });
             return await res.json({ success: true, data: data });
@@ -53,9 +60,18 @@ router.get('/getHeaderInfo', (req, res) => {
     );
 });
 
+router.get('/getWorksData', (req, res) => {
+    works_data.find(
+        async (err, data) => {
+            if (err) return await res.json({ success: false, error: err });
+            return await res.json({ success: true, data: data });
+        }
+    );
+});
+
 
 // append /api for our http requests
 app.use('/api', router);
 
 // launch our backend into a port
-app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+app.listen(API_PORT);

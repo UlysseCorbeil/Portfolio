@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // import work page
 import App from './App';
@@ -14,9 +14,9 @@ import './style/main.css';
 
 // render page
 ReactDOM.render(
-    <BrowserRouter>
-        <Route path='/' component={App} />
-    </BrowserRouter>,
+    <Router>
+        <App />
+    </Router>,
     document.getElementById('root')
 );
 serviceWorker.unregister();

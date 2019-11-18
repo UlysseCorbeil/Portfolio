@@ -1,8 +1,0 @@
-{
-	"modules": [
-		"js/modules/auto-go-back-up-page.js",
-		"js/modules/auto-progress-bar.js",
-		"js/modules/move-on-hover.js",
-		"js/modules/hoverProject.js"
-	]
-}

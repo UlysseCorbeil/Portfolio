@@ -1,91 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { Switch, Route, withRouter } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-// views
-import ProjectList from './views/ProjectList';
-import Header from './views/Header';
-import LoadingSVG from './svg/LoadingSVG';
+import Home from './views/Home';
+import Project from './views/Project';
 
-class App extends Component {
-
-    // initialize our state
-    state = {
-        dataHeader: [],
-        dataProjects: [],
-        id: 0,
-        message: null,
-        intervalIsSet: false,
-        idToDelete: null,
-        idToUpdate: null,
-        objectToUpdate: null,
-        done: undefined
-    };
-
-    componentDidMount() {
-
-        // data init
-        this.getProjectsFromDb();
-        this.getHeaderInfoFromDb();
-
-        if (!!!this.state.intervalIsSet) {
-            let interval = setInterval(this.getDataFromDb, 1000);
-            this.setState({ intervalIsSet: interval });
-        }
-    }
-
-    componentWillUnmount() {
-        if (!!this.state.intervalIsSet) {
-            clearInterval(this.state.intervalIsSet);
-            this.setState({ intervalIsSet: null });
-        }
-    }
-
-    getProjectsFromDb = async () => {
-        setTimeout(() => {
-            fetch('http://localhost:3001/api/getProjetsData')
-                .then((data) => {
-                    setTimeout(() => {
-                        this.setState({ done: true, percent: data });
-                    }, 1000);
-                    return data.json();
-                })
-                .then((res) => this.setState({ dataProjects: res.data }));
-        }, 1200);
-    }
-
-    getHeaderInfoFromDb = async () => {
-        setTimeout(() => {
-            fetch('http://localhost:3001/api/getHeaderInfo')
-                .then((data) => {
-                    setTimeout(() => {
-                        this.setState({ done: true, percent: data });
-                    }, 1000);
-                    return data.json();
-                })
-                .then((res) => this.setState({ dataHeader: res.data }));
-        }, 1200);
-    }
-
+class App extends React.Component {
 
     render() {
+        const { location } = this.props;
         return (
             <div className="site" >
-                {
-                    !!!this.state.done ? (
-                        <LoadingSVG />
-                    ) : (
-                            <div className="page">
-                                <div className="header-wrapper">
-                                    <Header data={this.state.dataHeader} />
-                                </div>
-                                <div className="project-list-wrapper">
-                                    <ProjectList data={this.state.dataProjects} />
-                                </div>
-                            </div>
-                        )
-                }
+                <TransitionGroup className="transition-group">
+                    <CSSTransition key={location.key} timeout={{ enter: 250, exit: 500 }} classNames="page">
+                        <section className="route-section">
+                            <Switch location={location}>
+                                <Route exact path="/" component={Home} />
+                                <Route path="/jézabel-plamondon" component={() => <Project projectKey={0} />} />
+                                <Route path="/valley-laser-eye-centre" component={() => <Project projectKey={1} />} />
+                                <Route path="/bonsound-promo" component={() => <Project projectKey={2} />} />
+                                <Route path="/le-fol-espoir" component={() => <Project projectKey={3} />} />
+                                <Route path="/sandalwood" component={() => <Project projectKey={4} />} />
+                            </Switch>
+                        </section>
+                    </CSSTransition>
+                </TransitionGroup>
             </div >
         )
     }
 
 }
-export default App;
+export default withRouter(App);

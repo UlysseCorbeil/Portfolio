@@ -5,39 +5,31 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 // Le schema de données de ma BDD
-let projetSchema = Schema({
+let sectionTitleSchema = Schema({
 
     id: {
         type: Number,
         required: true
     },
-    nomProjet: {
+    sectionName: {
         type: String,
         required: true
     },
-    categProjet: {
-        type: String,
-        required: true
-    },
-    date: {
-        type: String,
-        required: true
-    },
-    roles: {
+    title: {
         type: String,
         required: true
     }
 },
     {
-        collection: 'projets'
+        collection: 'sectionTitle'
     }
 );
 
 
 // Exportation du module pour qu'on puisse y accéder dans le fichier principal
-const Projets = module.exports = mongoose.model('projets', projetSchema);
+const sectionTitle = module.exports = mongoose.model('sectionTitle', sectionTitleSchema);
 
 // fonction qui permet de recevoir les données dans le fichier principal
-module.exports.getProjets = (callback) => {
-    Projets.find(callback);
+module.exports.getSectionTitle = (callback) => {
+    sectionTitle.find(callback);
 };
