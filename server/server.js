@@ -10,6 +10,15 @@ const projets_data = require('./models/projet');
 const header_data = require('./models/header');
 const section_title = require('./models/sectionTitle');
 const works_data = require('./models/works');
+const error_data = require('./models/error');
+
+// @todo
+// const url = require('url');
+
+// var urlobj = url.parse(req.originalUrl);
+// urlobj.protocol = req.protocol;
+// urlobj.host = req.get('host');
+// var requrl = url.format(urlobj);
 
 // api
 const API_PORT = 3001;
@@ -24,7 +33,6 @@ app.use(logger('dev'));
 
 const dbRoute = 'mongodb://localhost:27017/Portfolio';
 
-// Crée la connection à mongoose
 mongoose.connect(dbRoute, {
     useNewUrlParser: true
 });
@@ -55,7 +63,11 @@ router.get('/getHeaderInfo', (req, res) => {
     header_data.find(
         async (err, data) => {
             if (err) return await res.json({ success: false, error: err });
-            return await res.json({ success: true, data: data });
+            data.forEach(async (v) => {
+                if (v.lg === 'en') {
+                    return await res.json({ success: true, data: v });
+                }
+            })
         }
     );
 });
@@ -69,9 +81,16 @@ router.get('/getWorksData', (req, res) => {
     );
 });
 
+router.get('/getErrorData', (req, res) => {
+    error_data.find(
+        async (err, data) => {
+            if (err) return await res.json({ success: false, error: err });
+            return await res.json({ success: true, data: data });
+        }
+    );
+});
 
-// append /api for our http requests
+
 app.use('/api', router);
 
-// launch our backend into a port
 app.listen(API_PORT);

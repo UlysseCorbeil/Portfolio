@@ -1,0 +1,28 @@
+.ctn {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    .back-button {
+        position: absolute;
+        left: @broad;
+        top: @broad;
+    }
+    .title {
+        margin-top: @broad;
+        font-size: @big;
+        text-align: center;
+    }
+    .message {
+        text-align: center;
+        font-size: @small;
+    }
+    .error-img {
+        display: flex;
+        width: @full;
+        justify-content: center;
+        img {
+            width: @1_2;
+        }
+    }
+}

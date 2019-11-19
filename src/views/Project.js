@@ -74,30 +74,50 @@ class Project extends React.Component {
     render() {
         const { dataWorks } = this.state;
         return (
-            <div className="module">
-                {
-                    <div className="project">
-                        <NavLink to='/'>
-                            <div>back</div>
-                        </NavLink>
-                        <div style={{ width: '100%', height: '500px' }}>
-                            <img src={this.returnProjectImage()} alt="nom projet" />
-                        </div>
-                        {dataWorks.map((res, key) => (
-                            <div className="project-header" data-aos="fade-up" key={key}>
-                                <div className="ctn">
-                                    <div className="nomProjet">{this.returnMatchedProjectData(res.id, res.nomProjet)}</div>
-                                    <div className="year">{this.returnMatchedProjectData(res.id, res.year)}</div>
-                                    <div className="nameLibelle">{this.returnMatchedProjectData(res.id, res.nameLibelle)}</div>
-                                    <div className="name">{this.returnMatchedProjectData(res.id, res.name[0])}</div>
-                                    <div className="type">{this.returnMatchedProjectData(res.id, res.type)}</div>
-                                    <div className="text">{this.returnMatchedProjectData(res.id, res.text)}</div>
+            <div className="page">
+                <div className="module">
+                    {
+                        <div className="project">
+                            <NavLink to='/'>
+                                <div>back</div>
+                            </NavLink>
+                            <div class="project-header">
+                                {dataWorks.map((res, key) => (
+                                    <div className="project-header-title" data-aos="fade-up" key={key}>
+                                        <div className="ctn">
+                                            <div className="title-ctn">
+                                                <div className="nom-projet">{this.returnMatchedProjectData(res.id, res.nomProjet)}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                                <div className="header-img-wrapper">
+                                    <div className="header-img-ctn">
+                                        <div className="header-img-inner-ctn">
+                                            <img src={this.returnProjectImage()} alt="nom projet" className="header-img" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                }
+                            {dataWorks.map((res, key) => (
+                                <div className="project-header-info" data-aos="fade-up" key={key}>
+                                    <div className="info-ctn">
+                                        <div className="item-left">
+                                            <div className="year">{this.returnMatchedProjectData(res.id, res.year)}</div>
+                                            <div className="nameLibelle">{this.returnMatchedProjectData(res.id, res.nameLibelle)}</div>
+                                            <div className="name">{this.returnMatchedProjectData(res.id, res.name[0])}</div>
+                                            <div className="text">{this.returnMatchedProjectData(res.id, res.text)}</div>
+                                        </div>
+                                        <div className="item-right">
+                                            <div className="type">{this.returnMatchedProjectData(res.id, res.type)}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    }
 
+                </div>
             </div>
         );
     }

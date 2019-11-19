@@ -48,22 +48,21 @@ class Header extends React.Component {
         });
     }
 
-
     render() {
         const { dataHeader } = this.state;
         return (
             <div className='header-ctn module'>
-                {!!!this.state.done ? '' : dataHeader.map((res, key) => (
+                {!!!this.state.done ? '' : (
 
-                    <div className='item' key={key}>
+                    <div className='item'>
                         <div className='inner-ctn'>
                             <div className='header'>
 
                                 <div className='intro'>
-                                    <div className='surtitle'>{res.surtitle}</div>
-                                    <div className='surtitle-two'>{res.surtitleTwo}</div>
+                                    <div className='surtitle'>{dataHeader.surtitle}</div>
+                                    <div className='surtitle-two'>{dataHeader.surtitleTwo}</div>
                                     <div className='main-ctn'>
-                                        <div className='title'>{res.title}</div>
+                                        <div className='title'>{dataHeader.title}</div>
                                         <div className="img-container">
                                             <img className='image' src={image} alt='Ulysse' />
                                             <BlueCircle />
@@ -76,7 +75,7 @@ class Header extends React.Component {
                             </div>
                         </div>
                     </div>
-                ))}
+                )}
             </div>
         );
     }

@@ -4,13 +4,23 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Home from './views/Home';
 import Project from './views/Project';
+import Nav from './views/Nav';
+
+// 404
+import ErrorPage from './views/ErrorPage';
+
+import RotateOnScroll from './modules/RotateOnScroll';
 
 class App extends React.Component {
 
     render() {
         const { location } = this.props;
         return (
-            <div className="site" >
+            <div className="site">
+                <Nav />
+                <div className="contactSticky">
+                    <a href="mailto:ulysse98@hotmail.com"><RotateOnScroll /></a>
+                </div>
                 <TransitionGroup className="transition-group">
                     <CSSTransition key={location.key} timeout={{ enter: 250, exit: 500 }} classNames="page">
                         <section className="route-section">
@@ -21,6 +31,7 @@ class App extends React.Component {
                                 <Route path="/bonsound-promo" component={() => <Project projectKey={2} />} />
                                 <Route path="/le-fol-espoir" component={() => <Project projectKey={3} />} />
                                 <Route path="/sandalwood" component={() => <Project projectKey={4} />} />
+                                <Route component={ErrorPage} />
                             </Switch>
                         </section>
                     </CSSTransition>
