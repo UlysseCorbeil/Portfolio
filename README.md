@@ -17,11 +17,11 @@ If you want to check the API data you'll need to configure a port, by default it
   
   - params :
 
-      tasks : object containing an array of the tasks you which to apply to the element.
-        - rotate
-        - scale
+      - tasks : object containing an array of the tasks you which to apply to the element.
+          - rotate
+          - scale
       
-      rotateSmoothValue : takes an int. The lower the number, the faster the rotation.
+      - rotateSmoothValue : takes an int. The lower the number, the faster the rotation.
       
-      initialScale : set initial scale of your element here.
-      maxScale : set maximum scale of your element here.
+      - initialScale : set initial scale of your element here.
+      - maxScale : set maximum scale of your element here.
