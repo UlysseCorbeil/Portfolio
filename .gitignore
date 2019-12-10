@@ -6,7 +6,8 @@
 .pnp.js
 
 # vim
-.swp
+.*.sw*
+*.vim
 
 # testing
 /coverage
