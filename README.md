@@ -15,13 +15,17 @@ If you want to check the API data you'll need to configure a port, by default it
   
   - Works with relative, absolute and fixed elements
   
-  - params :
+  - params (they are all optional) :
 
       - tasks : object containing an array of the tasks you which to apply to the element.
           - rotate
           - scale
+          - translate
       
-      - rotateSmoothValue : takes an int. The lower the number, the faster the rotation.
+      - rotateSpeed : takes an int. The lower the number, the faster the rotation.
       
       - initialScale : set initial scale of your element here.
       - maxScale : set maximum scale of your element here.
+      
+      - TranslateSpeed : speed of the parallax.
+      - Translate X, Y and Z.
