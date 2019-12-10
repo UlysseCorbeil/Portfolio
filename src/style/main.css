@@ -364,6 +364,7 @@ html {
   justify-content: center;
 }
 .site .nav div {
+  cursor: pointer;
   padding-top: 2rem;
   font-size: calc(2rem * var(--type-factor));
 }

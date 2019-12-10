@@ -11,6 +11,7 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            languageByUrl: this.props.languageByUrl,
             dataHeader: [],
             intervalIsSet: false,
             done: undefined
@@ -44,7 +45,13 @@ class Header extends React.Component {
                     });
                     return data.json();
                 })
-                .then((res) => this.setState({ dataHeader: res.data }));
+                .then((res) => {
+                    res.data.map(async (v) => {
+                        if (v.lg === this.state.languageByUrl) {
+                            this.setState({ dataHeader: v })
+                        }
+                    })
+                })
         });
     }
 
@@ -57,7 +64,6 @@ class Header extends React.Component {
                     <div className='item'>
                         <div className='inner-ctn'>
                             <div className='header'>
-
                                 <div className='intro'>
                                     <div className='surtitle'>{dataHeader.surtitle}</div>
                                     <div className='surtitle-two'>{dataHeader.surtitleTwo}</div>

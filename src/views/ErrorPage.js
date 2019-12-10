@@ -7,6 +7,7 @@ class ErrorPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            languageByUrl: this.props.languageByUrl,
             dataError: [],
             intervalIsSet: false,
             done: undefined
@@ -52,7 +53,7 @@ class ErrorPage extends React.Component {
                     <div className="module">
                         <div className="ctn" key={key}>
                             <div className="back-button">
-                                <NavLink to='/' className="link">
+                                <NavLink to={'/' + this.state.languageByUrl} className="link">
                                     <div class="lg-change">Back</div>
                                 </NavLink>
                             </div>
@@ -68,4 +69,5 @@ class ErrorPage extends React.Component {
         );
     }
 }
+
 export default ErrorPage;

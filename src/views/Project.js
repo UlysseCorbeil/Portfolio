@@ -13,6 +13,7 @@ class Project extends React.Component {
         super(props);
 
         this.state = {
+            languageByUrl: this.props.languageByUrl,
             pKey: this.props.projectKey,
             dataWorks: [],
             intervalIsSet: false
@@ -78,7 +79,7 @@ class Project extends React.Component {
                 <div className="module">
                     {
                         <div className="project">
-                            <NavLink to='/'>
+                            <NavLink to={'/' + this.state.languageByUrl + '/'}>
                                 <div>back</div>
                             </NavLink>
                             <div class="project-header">

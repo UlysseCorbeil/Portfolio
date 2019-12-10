@@ -63,11 +63,7 @@ router.get('/getHeaderInfo', (req, res) => {
     header_data.find(
         async (err, data) => {
             if (err) return await res.json({ success: false, error: err });
-            data.forEach(async (v) => {
-                if (v.lg === 'en') {
-                    return await res.json({ success: true, data: v });
-                }
-            })
+            return await res.json({ success: true, data: data });
         }
     );
 });

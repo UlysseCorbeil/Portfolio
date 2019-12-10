@@ -9,34 +9,44 @@ import Nav from './views/Nav';
 // 404
 import ErrorPage from './views/ErrorPage';
 
-import RotateOnScroll from './modules/RotateOnScroll';
+import StateOnScroll from './modules/ChangeStateOnScroll';
+import contactCircle from './images/reachme.png';
 
 class App extends React.Component {
 
     render() {
         const { location } = this.props;
+        let languageByUrl = location.pathname.substring(1, 3);
         return (
             <div className="site">
-                <Nav />
+                <Nav languageByUrl={languageByUrl} />
                 <div className="contactSticky">
-                    <a href="mailto:ulysse98@hotmail.com"><RotateOnScroll /></a>
+                    <a href="mailto:ulysse98@hotmail.com">
+                       <StateOnScroll
+                            tasks={['rotate']}
+                            rotateSmoothValue={8} 
+                       >
+                          <img className="state-on-scroll-element" src={contactCircle} alt="ulysse98@hotmail.com"/>
+                        </StateOnScroll>
+                    </a>
                 </div>
+
                 <TransitionGroup className="transition-group">
                     <CSSTransition key={location.key} timeout={{ enter: 250, exit: 500 }} classNames="page">
                         <section className="route-section">
                             <Switch location={location}>
-                                <Route exact path="/" component={Home} />
-                                <Route path="/jézabel-plamondon" component={() => <Project projectKey={0} />} />
-                                <Route path="/valley-laser-eye-centre" component={() => <Project projectKey={1} />} />
-                                <Route path="/bonsound-promo" component={() => <Project projectKey={2} />} />
-                                <Route path="/le-fol-espoir" component={() => <Project projectKey={3} />} />
-                                <Route path="/sandalwood" component={() => <Project projectKey={4} />} />
-                                <Route component={ErrorPage} />
+                                <Route exact path={'/' + languageByUrl + '/'} component={() => <Home languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/' + 'jezabel-plamondon'} component={() => <Project projectKey={0} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/' + '/valley-laser-eye-centre'} component={() => <Project projectKey={1} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/' + '/bonsound-promo'} component={() => <Project projectKey={2} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/' + '/le-fol-espoir'} component={() => <Project projectKey={3} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/' + '/sandalwood'} component={() => <Project projectKey={4} languageByUrl={languageByUrl} />} />
+                                <Route component={() => <ErrorPage languageByUrl={languageByUrl} />} />
                             </Switch>
                         </section>
                     </CSSTransition>
                 </TransitionGroup>
-            </div >
+            </div>
         )
     }
 
