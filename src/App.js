@@ -22,11 +22,11 @@ class App extends React.Component {
                 <Nav languageByUrl={languageByUrl} />
                 <div className="contactSticky">
                     <a href="mailto:ulysse98@hotmail.com">
-                       <StateOnScroll
+                        <StateOnScroll
                             tasks={['rotate']}
-                            rotateSmoothValue={8} 
-                       >
-                          <img className="state-on-scroll-element" src={contactCircle} alt="ulysse98@hotmail.com"/>
+                            rotateSpeed={6}
+                        >
+                          <img src={contactCircle} alt="ulysse98@hotmail.com"/>
                         </StateOnScroll>
                     </a>
                 </div>

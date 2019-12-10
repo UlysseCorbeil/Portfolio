@@ -29,33 +29,43 @@ class ChangeStateOnScroll extends React.Component {
             tasks: props.tasks,
             possibleTasks: [
                 'scale',
-                'rotate'
+                'rotate',
+                'translate'
             ],
 
+            // rotate
             rotateVal: 0,
             prevScroll: window.scrollY,
-            rotateSmoothValue: props.rotateSmoothValue,
+            rotateSmoothValue: props.rotateSpeed === undefined ? 0 : props.rotateSpeed,
           
+            // scale
             scaleVal: 1,
-            initialScale: props.initialScale,
-            maxScale: props.maxScale
+            initialScale: props.initialScale === undefined ? 0: props.initialScale,
+            maxScale: props.maxScale === undefined ? 0 : props.maxScale,
+
+            // translate
+            translateSpeed: props.translateSpeed === undefined ? 0 : props.translateSpeed,
+            translateY: props.translateY === undefined ? 0 : props.translateY, 
+            translateX: props.translateX === undefined ? 0 : props.translateX,
+            translateZ: props.translateZ === undefined ? 0 : props.translateZ
         }
-        
     }
 
-    componentDidMount() {
+    componentDidMount () {
+        // reset everything before updating
+        this.resetVal();
         window.addEventListener('scroll', (e) => {
             this.handleScroll(e);
         });
     }
 
-    componentWillUnmount() {
-        window.removeEventListener('scroll', () => {
-            this.resetVal();
-        });
+    componentWillUnmount () {
+        window.removeEventListener('scroll', this.resetVal);
+
     }
 
     handleScroll(e) {
+
         
         let matches = Helpers.arrayMatches(this.state.tasks, this.state.possibleTasks);
 
@@ -64,6 +74,8 @@ class ChangeStateOnScroll extends React.Component {
             this.handleScale(e);
           } else if (val === 'rotate') {
             this.handleRotate(e);
+          } else if (val === 'translate') {
+            this.handleTranslate(e);
           } else {
             this.resetVal();
           }
@@ -112,20 +124,44 @@ class ChangeStateOnScroll extends React.Component {
         }
     }
 
+    handleTranslate(e) {
+        const ct = e.currentTarget;
+
+        if (this.state.prevScroll > ct.scrollY) {
+
+            this.setState({
+              translateY: (window.pageYOffset - this.state.translateY) / this.state.translateSpeed
+            });
+
+        } else if (this.state.prevScroll < ct.scrollY) {
+
+            this.setState({
+              translateY: (window.pageYOffset - this.state.translateY) / this.state.translateSpeed
+            });
+
+        }
+    }
+    
+
     resetVal() {
         this.setState({
           rotateVal: 0,
-          scaleVal: 1
+          scaleVal: 1,
+          translateY: 0
         });
     }
 
     render() {
-        const { rotateVal, scaleVal } = this.state;
+        const { rotateVal, scaleVal, translateY} = this.state;
         const style = {
             position: 'relative'
         };
 
-        const transformAttr = { transform: `rotate(${rotateVal}deg) scale(${scaleVal})`
+        const transformAttr = { transform: `
+            rotate(${rotateVal}deg) 
+            scale(${scaleVal})
+            translate3d(${0}px, ${-translateY}px, ${0}px)  
+            `
         };
 
         const childrenWithProps = React.Children.map(this.props.children, child =>
