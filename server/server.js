@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const compression = require('compression');
+const helmet = require('helmet');
 
 //data
 const projets_data = require('./models/projet');
@@ -28,9 +29,14 @@ const router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
+app.use(helmet.frameguard());
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
+// dev
+//const dbRoute = 'mongodb://localhost:27017/Portfolio';
+
+// prod
 const dbRoute = 'mongodb://localhost:27017/Portfolio';
 
 mongoose.connect(dbRoute, {
