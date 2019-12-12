@@ -28,9 +28,9 @@
     
   - Just wrap your content inside the Reveal component and pass the class  you which to use on the content.
     
-  - Props :
+  - Params :
       
-  - className: class you want to give to the container.
+    - className: class you want to give to the container.
     
     - key (optional): only if you're in a loop and want to have the component as a wrapper.
  
