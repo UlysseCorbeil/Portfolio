@@ -24,12 +24,14 @@ class App extends React.Component {
                 <Nav languageByUrl={languageByUrl} />
                 <div className="contactSticky">
                     <a href="mailto:ulysse98@hotmail.com">
+
                         <TransformOnScroll
                             tasks={['rotate']}
                             rotateSpeed={6}
                         >
                           <img src={contactCircle} alt="ulysse98@hotmail.com"/>
                         </TransformOnScroll>
+
                     </a>
                 </div>
 
