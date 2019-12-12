@@ -43,7 +43,7 @@ class Helpers {
     */
     static normalizeValue (val, min, max) {
         return (val - min) / (max - min);
-    }
+    };
 
     /*
      * 
@@ -73,7 +73,7 @@ class Helpers {
     }
 
     return string;
-  }
+  };
 
 }
 

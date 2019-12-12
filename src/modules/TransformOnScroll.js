@@ -1,4 +1,6 @@
 /*
+ *  Transform On Scroll
+ *
  *  - Needs to be directly wrapping element
  *  - Works with relative, absolute and fixed elements
  *  - params : 
@@ -20,7 +22,7 @@
 import React from 'react';
 import Helpers from './util/Helpers';
 
-class ChangeStateOnScroll extends React.Component {
+class TransformOnScroll extends React.Component {
 
     constructor(props) {
         super(props);
@@ -169,10 +171,10 @@ class ChangeStateOnScroll extends React.Component {
         );
         
         return (
-            <div style={style} className="sticky-wrapper">
+            <div style={style}>
                 {childrenWithProps}
             </div>
         );
     }
 }
-export default ChangeStateOnScroll;
+export default TransformOnScroll;

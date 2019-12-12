@@ -1,28 +1,35 @@
 import React from 'react';
 
-class HoverProject extends React.Component {
+class Hover extends React.Component {
 
-    state = {
-        isHovered: false,
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isHovered: false
+        }
+    }
 
     onMouseEnter() {
         this.setState({ isHovered: true });
     }
+
     onMouseLeave() {
         this.setState({ isHovered: false });
     }
 
-    render() {
+    render () {
+        const { isHovered } = this.state;
         return (
             <div
                 onMouseEnter={this.onMouseEnter.bind(this)}
                 onMouseLeave={this.onMouseLeave.bind(this)}
-                className="project-item"
+                className={` ${this.props.className} ${isHovered ? 'is-hovered' : ''}`}
             >
-                {this.props.children(this.state.isHovered)}
+                {this.props.children}
             </div >
         );
     }
 }
-export default HoverProject;
+
+export default Hover;

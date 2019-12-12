@@ -6,7 +6,7 @@ import RedCircle from '../svg/RedCircle';
 
 import image from '../images/image_moi.jpg';
 
-import StateOnScroll from '../modules/ChangeStateOnScroll';
+import TransformOnScroll from '../modules/TransformOnScroll';
 
 class Header extends React.Component {
 
@@ -72,16 +72,18 @@ class Header extends React.Component {
                                     <div className='main-ctn'>
                                         <div className='title'>{dataHeader.title}</div>
                                         <div className="img-container">
-                                            <StateOnScroll
+                                            <TransformOnScroll
                                                 tasks={['translate']}
                                                 translateY={15}
-                                                translateSpeed={10}
+                                                translateSpeed={7}
                                             >
                                                 <img className='image' src={image} alt='Ulysse' />
-                                            </StateOnScroll>
+                                            </TransformOnScroll>
+
                                             <BlueCircle />
                                             <LineSvg />
                                             <RedCircle />
+
                                         </div>
                                     </div>
                                 </div>

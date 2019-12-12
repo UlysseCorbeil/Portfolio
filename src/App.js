@@ -9,7 +9,7 @@ import Nav from './views/Nav';
 // 404
 import ErrorPage from './views/ErrorPage';
 
-import StateOnScroll from './modules/ChangeStateOnScroll';
+import TransformOnScroll from './modules/TransformOnScroll';
 import contactCircle from './images/reachme.png';
 
 class App extends React.Component {
@@ -22,12 +22,12 @@ class App extends React.Component {
                 <Nav languageByUrl={languageByUrl} />
                 <div className="contactSticky">
                     <a href="mailto:ulysse98@hotmail.com">
-                        <StateOnScroll
+                        <TransformOnScroll
                             tasks={['rotate']}
                             rotateSpeed={6}
                         >
                           <img src={contactCircle} alt="ulysse98@hotmail.com"/>
-                        </StateOnScroll>
+                        </TransformOnScroll>
                     </a>
                 </div>
 

@@ -2,17 +2,36 @@
     padding-top: @broadest;
     .sectionTitle {
         font-size: @medium;
-        margin-bottom: -@broad;
-        padding-bottom: @broad;
+        margin-top: -@broad;
+        padding-top: @broad;
     }
     .project-wrapper {
 
         cursor: pointer;
 
         margin-bottom: @broadest;
-        margin-top: @broadest;
-        margin-top: @broadest;
-        margin-bottom: @broadest;
+        margin-top: @broad;
+        margin-left: @broad;
+        margin-right: @broad;
+
+        .project-item {
+
+            .project-image {
+                width: 60rem;
+                opacity: 0;
+                position: absolute;
+                left: 25%;
+                transform: scale(0.8);
+                transition: opacity @duration-long @ease-out-expo, transform @duration-short @ease-out-expo;
+            }
+
+            &.is-hovered {
+              .project-image {
+                transform: scale(1);
+                opacity: 1;
+              }
+            }
+        }  
 
         .inner-ctn {
 
@@ -33,21 +52,7 @@
                     font-size: @big;
                 }
             }
-
-            .project-image {
-                width: 40rem;
-                opacity: 0;
-                position: absolute;
-                left: 25%;
-                transform: scale(0.8);
-                transition: opacity @duration-long @ease-out-expo, transform @duration-short @ease-out-expo;
-
-                &.active {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-            }
-            
+          
             .item-ctn {
                 .flexbox;
                 justify-content: space-between;
