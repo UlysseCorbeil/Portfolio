@@ -1,14 +1,22 @@
-## Available Scripts
+### Modules
 
-In the project directory, you can run:
+### Transform On Scroll
 
-### `npm start`
+  - Needs to be directly wrapping element
+  
+  - Works with relative, absolute and fixed elements
+  
+  - params (they are all optional) :
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-If you want to check the API data you'll need to configure a port, by default it's on 3001.
-
-### Gruntfile
-Just run grunt build in the root folder and it will build the project for you.
-It watches for new js modules and changes to your less files.
+      - tasks : object containing an array of the tasks you which to apply to the element.
+          - rotate
+          - scale
+          - translate
+      
+      - rotateSpeed : takes an int. The lower the number, the faster the rotation.
+      
+      - initialScale : set initial scale of your element here.
+      - maxScale : set maximum scale of your element here.
+      
+      - TranslateSpeed : speed of the parallax.
+      - Translate X, Y and Z.
