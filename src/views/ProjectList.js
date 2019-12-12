@@ -3,8 +3,6 @@ import LoadingSVG from '../svg/LoadingSVG';
 import { NavLink } from "react-router-dom";
 import Helpers from '../modules/util/Helpers';
 
-import img from '../images/vlec.png';
-
 import Reveal from '../modules/Reveal';
 import Hover from '../modules/Hover';
 
@@ -92,20 +90,19 @@ class ProjectList extends React.Component {
                 >
                     <div className="project-wrapper">
                         <Hover className="project-item">
-                        <NavLink to={'/' + this.state.languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'} className="link">
-                            <img className="project-image" src={img}/>
-                            <div className="inner-ctn">
-                                <div className="header">
-                                    <div className="number">0{res.id + 1}</div>
-                                    <div className="name">{res.nomProjet}</div>
+                            <NavLink to={'/' + this.state.languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'} className="link">
+                                <div className="inner-ctn">
+                                    <div className="header">
+                                        <div className="number">0{res.id + 1}</div>
+                                        <div className="name">{res.nomProjet}</div>
+                                    </div>
+                                    <div className="item-ctn">
+                                        <div className="categ">{res.categProjet}</div>
+                                        <div className="roles">{res.roles}</div>
+                                        <div className="date">{res.date}</div>
+                                    </div>
                                 </div>
-                                <div className="item-ctn">
-                                    <div className="categ">{res.categProjet}</div>
-                                    <div className="roles">{res.roles}</div>
-                                    <div className="date">{res.date}</div>
-                                </div>
-                            </div>
-                        </NavLink>
+                            </NavLink>
                         </Hover>
                     </div>
                 </Reveal>

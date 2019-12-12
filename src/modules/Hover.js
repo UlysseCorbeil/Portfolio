@@ -2,11 +2,11 @@ import React from 'react';
 
 class Hover extends React.Component {
 
-    constructor(props) {
+  constructor(props) {
         super(props);
 
         this.state = {
-            isHovered: false
+            isHovered: false,
         }
     }
 
@@ -22,9 +22,9 @@ class Hover extends React.Component {
         const { isHovered } = this.state;
         return (
             <div
+                className={` ${this.props.className} ${isHovered ? 'is-hovered' : ''}`}
                 onMouseEnter={this.onMouseEnter.bind(this)}
                 onMouseLeave={this.onMouseLeave.bind(this)}
-                className={` ${this.props.className} ${isHovered ? 'is-hovered' : ''}`}
             >
                 {this.props.children}
             </div >
