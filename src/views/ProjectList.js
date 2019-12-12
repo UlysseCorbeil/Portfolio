@@ -1,5 +1,4 @@
 import React from 'react';
-import LoadingSVG from '../svg/LoadingSVG';
 import { NavLink } from "react-router-dom";
 import Helpers from '../modules/util/Helpers';
 
@@ -73,14 +72,14 @@ class ProjectList extends React.Component {
     }
 
     render() {
-        const { dataProjects, sectionTitle, language } = this.state;
+        const { dataProjects, sectionTitle, languageByUrl } = this.state;
 
         return (
             <div className="project-list module">
 
               <div className="sectionTitle">{sectionTitle.title}</div>
 
-              {dataProjects.filter(res => res.lg === this.state.languageByUrl).map((res, key) => (
+              {dataProjects.filter(res => res.lg === languageByUrl).map((res, key) => (
 
                 <Reveal 
                   className="fade-in-section"
@@ -90,7 +89,7 @@ class ProjectList extends React.Component {
                 >
                     <div className="project-wrapper">
                         <Hover className="project-item">
-                            <NavLink to={'/' + this.state.languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'} className="link">
+                            <NavLink to={'/' + languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'} className="link">
                                 <div className="inner-ctn">
                                     <div className="header">
                                         <div className="number">0{res.id + 1}</div>

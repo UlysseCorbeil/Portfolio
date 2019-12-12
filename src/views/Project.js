@@ -82,9 +82,9 @@ class Project extends React.Component {
                             <NavLink to={'/' + this.state.languageByUrl + '/'}>
                                 <div>back</div>
                             </NavLink>
-                            <div class="project-header">
+                            <div className="project-header">
                                 {dataWorks.map((res, key) => (
-                                    <div className="project-header-title" data-aos="fade-up" key={key}>
+                                    <div className="project-header-title" key={key}>
                                         <div className="ctn">
                                             <div className="title-ctn">
                                                 <div className="nom-projet">{this.returnMatchedProjectData(res.id, res.nomProjet)}</div>
@@ -101,7 +101,7 @@ class Project extends React.Component {
                                 </div>
                             </div>
                             {dataWorks.map((res, key) => (
-                                <div className="project-header-info" data-aos="fade-up" key={key}>
+                                <div className="project-header-info" key={key}>
                                     <div className="info-ctn">
                                         <div className="item-left">
                                             <div className="year">{this.returnMatchedProjectData(res.id, res.year)}</div>

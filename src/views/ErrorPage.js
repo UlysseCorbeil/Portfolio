@@ -59,7 +59,7 @@ class ErrorPage extends React.Component {
                             </div>
                             <div className="title">{res.title}</div>
                             <div className="error-img">
-                                <img src={ErrorSvg} />
+                                <img src={ErrorSvg} alt='error 404'/>
                             </div>
                             <div className="message">{res.message}</div>
                         </div>

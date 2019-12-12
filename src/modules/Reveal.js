@@ -31,8 +31,6 @@
  *
 */
 
-'use strict';
-
 import React from 'react';
 
 class Reveal extends React.Component {

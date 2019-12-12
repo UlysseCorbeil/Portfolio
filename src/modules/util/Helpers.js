@@ -67,8 +67,11 @@ class Helpers {
     };
 
     string = string.toLowerCase();
-    
-    for (let pattern in map) {
+
+    // declare outside to prevent unused-var bug
+    let pattern = null;
+
+    for (pattern in map) {
       string = string.replace(new RegExp(map[pattern], 'g'), pattern);
     }
 

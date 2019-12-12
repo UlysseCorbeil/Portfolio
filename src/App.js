@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react'
 import { Switch, Route, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -40,11 +38,11 @@ class App extends React.Component {
                         <section className="route-section">
                             <Switch location={location}>
                                 <Route exact path={'/' + languageByUrl + '/'} component={() => <Home languageByUrl={languageByUrl} />} />
-                                <Route path={'/' + languageByUrl + '/' + 'jezabel-plamondon'} component={() => <Project projectKey={0} languageByUrl={languageByUrl} />} />
-                                <Route path={'/' + languageByUrl + '/' + '/valley-laser-eye-centre'} component={() => <Project projectKey={1} languageByUrl={languageByUrl} />} />
-                                <Route path={'/' + languageByUrl + '/' + '/bonsound-promo'} component={() => <Project projectKey={2} languageByUrl={languageByUrl} />} />
-                                <Route path={'/' + languageByUrl + '/' + '/le-fol-espoir'} component={() => <Project projectKey={3} languageByUrl={languageByUrl} />} />
-                                <Route path={'/' + languageByUrl + '/' + '/sandalwood'} component={() => <Project projectKey={4} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/jezabel-plamondon'} component={() => <Project projectKey={0} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/valley-laser-eye-centre'} component={() => <Project projectKey={1} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/bonsound-promo'} component={() => <Project projectKey={2} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/le-fol-espoir'} component={() => <Project projectKey={3} languageByUrl={languageByUrl} />} />
+                                <Route path={'/' + languageByUrl + '/sandalwood'} component={() => <Project projectKey={4} languageByUrl={languageByUrl} />} />
                                 <Route component={() => <ErrorPage languageByUrl={languageByUrl} />} />
                             </Switch>
                         </section>
