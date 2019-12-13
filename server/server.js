@@ -37,7 +37,7 @@ app.use(logger('dev'));
 //const dbRoute = 'mongodb://localhost:27017/Portfolio';
 
 // prod
-const dbRoute = 'mongodb://localhost:27017/Portfolio';
+const dbRoute = 'mongodb+srv://ulysse:fShsks12321@portfolio-vklaq.azure.mongodb.net/Portfolio';
 
 mongoose.connect(dbRoute, {
     useNewUrlParser: true

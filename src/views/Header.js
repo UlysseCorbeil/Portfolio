@@ -40,7 +40,7 @@ class Header extends React.Component {
 
     getHeaderInfoFromDb = async () => {
         setTimeout(() => {
-            fetch('http://localhost:3001/api/getHeaderInfo')
+            fetch('api/getHeaderInfo')
                 .then((data) => {
                     setTimeout(() => {
                         this.setState({ done: true, percent: data });

@@ -39,7 +39,7 @@ class ProjectList extends React.Component {
 
     getProjectsFromDb = async () => {
         setTimeout(() => {
-            fetch('http://localhost:3001/api/getProjetsData')
+            fetch('api/getProjetsData')
                 .then((data) => {
                     setTimeout(() => {
                         this.setState({ done: true, percent: data });
@@ -54,7 +54,7 @@ class ProjectList extends React.Component {
 
     getSectionTitle = async () => {
         setTimeout(() => {
-            fetch('http://localhost:3001/api/getSectionTitle')
+            fetch('api/getSectionTitle')
                 .then((data) => {
                     setTimeout(() => {
                         this.setState({ done: true, percent: data });
@@ -108,7 +108,7 @@ class ProjectList extends React.Component {
             ))};
 
             </div>
-        );
+        )
     }
 }
 export default ProjectList;
