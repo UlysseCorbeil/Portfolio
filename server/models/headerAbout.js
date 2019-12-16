@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 // Le schema de données de ma BDD
-let headerSchema = Schema({
+let headerAboutSchema = Schema({
 
     id: {
         type: Number,
@@ -17,7 +17,7 @@ let headerSchema = Schema({
     },
     title: {
         type: String,
-        requirer: true
+        required: true
     },
     surtitle: {
         type: String,
@@ -29,14 +29,15 @@ let headerSchema = Schema({
     }
 },
     {
-        collection: 'header'
+        collection: 'headerAbout'
     }
 );
 
 // Exportation du module pour qu'on puisse y accéder dans le fichier principal
-const Header = module.exports = mongoose.model('header', headerSchema);
+const HeaderAbout = module.exports = mongoose.model('headerAbout', headerAboutSchema);
 
 // fonction qui permet de recevoir les données dans le fichier principal
-module.exports.getHeader = (callback) => {
-    Header.find(callback);
+module.exports.getHeaderAbout = (callback) => {
+    HeaderAbout.find(callback);
 };
+

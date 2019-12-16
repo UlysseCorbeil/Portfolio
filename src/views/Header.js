@@ -4,7 +4,7 @@ import LineSvg from '../svg/LineSVG';
 import BlueCircle from '../svg/BlueCircle';
 import RedCircle from '../svg/RedCircle';
 
-import image from '../images/image_moi.jpg';
+import image from '../images/introImg.jpg';
 
 import TransformOnScroll from '../modules/TransformOnScroll';
 
@@ -29,7 +29,7 @@ class Header extends React.Component {
         this.getHeaderInfoFromDb();
 
         // last update
-        this.getLastRepoUpdate();
+        // this.getLastRepoUpdate();
 
         if (!!!this.state.intervalIsSet) {
             let interval = setInterval(this.getDataFromDb, 1000);
@@ -51,7 +51,7 @@ class Header extends React.Component {
         .then(response => {
           response.json().then(json => {
             this.setState({
-              date: json.commit.commit.author.date,
+              date: json.commit.commit.author.date
             });
           });
         })
@@ -80,24 +80,21 @@ class Header extends React.Component {
     }
 
     render() {
-        const { dataHeader, date } = this.state;
-        const formattedDate = Helpers.formatDate(date);
+        const { dataHeader, date, languageByUrl } = this.state;
+       const formattedDate = Helpers.sanatizeVariable(Helpers.formatDate(date));
         return (
             <div className='header-ctn'>
                 {!!!this.state.done ? '' : (
                             <div className='header'>
-                                    <div>last update {formattedDate}</div>
                                     <div className='surtitle'>{dataHeader.surtitle}</div>
                                     <div className='surtitle-two'>{dataHeader.surtitleTwo}</div>
                                     <div className='main-ctn'>
                                         <div className='title'>{dataHeader.title}</div>
                                         <div className="img-container">
                                             <img className='image' src={image} alt='Ulysse' />
-                                            <div className='back-ctn'>
-                                                <BlueCircle />
-                                                <LineSvg />
-                                                <RedCircle />
-                                            </div>
+                                        </div>
+                                        <div className='end-content'>                                                                          <div className='last-update'>{languageByUrl === 'en' ? 'last update ' : 'dernière mise à jour '}{formattedDate}</div>
+                                          <div className='year'>{'/' + new Date().getFullYear()}</div>
                                         </div>
                                 </div>
 

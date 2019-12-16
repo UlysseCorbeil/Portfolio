@@ -9,6 +9,7 @@ const helmet = require('helmet');
 //data
 const projets_data = require('./models/projet');
 const header_data = require('./models/header');
+const header_about = require('./models/headerAbout');
 const section_title = require('./models/sectionTitle');
 const works_data = require('./models/works');
 const error_data = require('./models/error');
@@ -67,6 +68,15 @@ router.get('/getSectionTitle', (req, res) => {
 
 router.get('/getHeaderInfo', (req, res) => {
     header_data.find(
+        async (err, data) => {
+            if (err) return await res.json({ success: false, error: err });
+            return await res.json({ success: true, data: data });
+        }
+    );
+});
+
+router.get('/getHeaderAbout', (req, res) => {
+    header_about.find(
         async (err, data) => {
             if (err) return await res.json({ success: false, error: err });
             return await res.json({ success: true, data: data });

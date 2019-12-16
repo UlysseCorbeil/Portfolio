@@ -5,78 +5,62 @@
             position: relative;
             width: @full;
         }
-        .back-ctn {
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-        }
-        .svgLine {
-            position: absolute;
-            right: 50%;
-            top: -50%;
-            transform: scale(1.2);
-            overflow: visible;
-            display: block;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .blueCircle {
-            position: absolute;
-            left: 85%;
-            top: -15%;
-            #mq-min-width(@screen-xs,{
-              left: 75%;
-              top: -15%;
+        .end-content {
+          width: @full;
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+           #mq-min-width(@screen-xs,{
+              width: @1_2;
             });
-            overflow: visible;
-            display: block;
-            padding-bottom: 30%; 
-            pointer-events: none;
-            z-index: -1;
-        }
-        .RedCircle {        
-          position: absolute;
-          left: 0%;
-          top: 80%;
-          #mq-min-width(@screen-xs,{
-            left: 15%;
-            top: 65%;
-          });
-          overflow: visible;
-          display: block;
-          padding-bottom: 30%; 
-          pointer-events: none;
-          z-index: -1;
+          .last-update {
+            padding-top: @thin;
+            width: @full;
+            font-size: @micro;
+          }
+          .year {
+            color: @yellow;
+            display: flex;
+            font-size: @big;
+            width: @full;
+            transform: translate3d(30%,-55%, 0);
+            z-index: 4;
+             #mq-min-width(@screen-xs,{
+               font-size: @biggest;
+               width: auto;
+            });
+          }
         }
         .surtitle {
+          font-weight: 500;
           font-size: @medium;
           padding-top: @broad;
         }
         .surtitle-two {
+          font-weight: 500;
           padding-top: @micro;
           font-size: @medium;
-          padding-bottom: @broad;
         }
         .main-ctn {
           .flexbox;
           justify-content: center;
-          margin-top: -@1_10;
           .title {
-            font-size: @bigger;
-            #mq-min-width(@screen-xs,{
-              font-size: @large;
-            });
+            width: @full;
+            color: @yellow;
+            font-size: @big;
             line-height: 100%;
-            transform: translateY(25%);
+            #mq-min-width(@screen-xs,{
+              width: @3_4;
+              font-size: @biggest;
+            });
+            transform: translateY(45%);
             z-index: 4;
           }
           .image {
             margin-left: auto;
             margin-right: auto;
             #mq-min-width(@screen-xs,{
-              width: @1_2;
+              width: 55%;
             });
             width: @3_4;
             z-index: 3;
