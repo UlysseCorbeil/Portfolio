@@ -8,6 +8,8 @@ import image from '../images/image_moi.jpg';
 
 import TransformOnScroll from '../modules/TransformOnScroll';
 
+import Helpers from '../modules/util/Helpers';
+
 class Header extends React.Component {
 
     constructor(props) {
@@ -16,6 +18,7 @@ class Header extends React.Component {
             languageByUrl: this.props.languageByUrl,
             dataHeader: [],
             intervalIsSet: false,
+            date: '',
             done: undefined
         }
     }
@@ -24,6 +27,9 @@ class Header extends React.Component {
 
         // data init
         this.getHeaderInfoFromDb();
+
+        // last update
+        this.getLastRepoUpdate();
 
         if (!!!this.state.intervalIsSet) {
             let interval = setInterval(this.getDataFromDb, 1000);
@@ -37,10 +43,26 @@ class Header extends React.Component {
             this.setState({ intervalIsSet: null });
         }
     }
+    
+    getLastRepoUpdate() {
+      fetch(
+        "https://api.github.com/repos/ulyssecorbeil/portfolio/branches/master"
+      )
+        .then(response => {
+          response.json().then(json => {
+            this.setState({
+              date: json.commit.commit.author.date,
+            });
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
 
     getHeaderInfoFromDb = async () => {
         setTimeout(() => {
-            fetch('api/getHeaderInfo')
+            fetch('http://localhost:3001/api/getHeaderInfo')
                 .then((data) => {
                     setTimeout(() => {
                         this.setState({ done: true, percent: data });
@@ -58,38 +80,27 @@ class Header extends React.Component {
     }
 
     render() {
-        const { dataHeader } = this.state;
+        const { dataHeader, date } = this.state;
+        const formattedDate = Helpers.formatDate(date);
         return (
-            <div className='header-ctn module'>
+            <div className='header-ctn'>
                 {!!!this.state.done ? '' : (
-
-                    <div className='item'>
-                        <div className='inner-ctn'>
                             <div className='header'>
-                                <div className='intro'>
+                                    <div>last update {formattedDate}</div>
                                     <div className='surtitle'>{dataHeader.surtitle}</div>
                                     <div className='surtitle-two'>{dataHeader.surtitleTwo}</div>
                                     <div className='main-ctn'>
                                         <div className='title'>{dataHeader.title}</div>
                                         <div className="img-container">
-                                            <TransformOnScroll
-                                                tasks={['translate']}
-                                                translateY={15}
-                                                translateSpeed={7}
-                                            >
-                                                <img className='image' src={image} alt='Ulysse' />
-                                            </TransformOnScroll>
-
-                                            <BlueCircle />
-                                            <LineSvg />
-                                            <RedCircle />
-
+                                            <img className='image' src={image} alt='Ulysse' />
+                                            <div className='back-ctn'>
+                                                <BlueCircle />
+                                                <LineSvg />
+                                                <RedCircle />
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
 
-                            </div>
-                        </div>
                     </div>
                 )}
             </div>

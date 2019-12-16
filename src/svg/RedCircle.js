@@ -2,16 +2,16 @@ import React from "react";
 
 const RedCircle = ({
     fill = "transparent",
-    width = "30%",
+    width = "25%",
     height = "1px",
-    className = "",
+    className = "RedCircle",
     viewBox = "0 0 8 8"
 }) => (
         <svg width={width}
             height={height}
             viewBox={viewBox}
             xmlns="http://www.w3.org/2000/svg"
-            className={`svg-icon RedCircle ${className || ""}`}
+            className={`svg-icon ${className || ""}`}
             preserveAspectRatio="xMidYMin slice"
             xmlnsXlink="http://www.w3.org/1999/xlink">
             <circle cx="4" cy="4" r="4" fill="#EE0032" />

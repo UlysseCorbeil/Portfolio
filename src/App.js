@@ -18,7 +18,7 @@ class App extends React.Component {
         const { location } = this.props;
         let languageByUrl = location.pathname.substring(1, 3);
         return (
-            <div className="site">
+            <React.Fragment>
                 <Nav languageByUrl={languageByUrl} />
                 <div className="contactSticky">
                     <a href="mailto:ulysse98@hotmail.com">
@@ -48,7 +48,7 @@ class App extends React.Component {
                         </section>
                     </CSSTransition>
                 </TransitionGroup>
-            </div>
+              </React.Fragment>
         )
     }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Helpers from '../modules/util/Helpers';
 
 import Reveal from '../modules/Reveal';
@@ -39,7 +39,7 @@ class ProjectList extends React.Component {
 
     getProjectsFromDb = async () => {
         setTimeout(() => {
-            fetch('api/getProjetsData')
+            fetch('http://localhost:3001/api/getProjetsData')
                 .then((data) => {
                     setTimeout(() => {
                         this.setState({ done: true, percent: data });
@@ -54,7 +54,7 @@ class ProjectList extends React.Component {
 
     getSectionTitle = async () => {
         setTimeout(() => {
-            fetch('api/getSectionTitle')
+            fetch('http://localhost:3001/api/getSectionTitle')
                 .then((data) => {
                     setTimeout(() => {
                         this.setState({ done: true, percent: data });
@@ -75,7 +75,7 @@ class ProjectList extends React.Component {
         const { dataProjects, sectionTitle, languageByUrl } = this.state;
 
         return (
-            <div className="project-list module">
+            <div className="project-list">
 
               <div className="sectionTitle">{sectionTitle.title}</div>
 
@@ -89,7 +89,11 @@ class ProjectList extends React.Component {
                 >
                     <div className="project-wrapper">
                         <Hover className="project-item">
-                            <NavLink to={'/' + languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'} className="link">
+                          <Link to={{
+                            pathname:'/' + languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'
+                            }}
+                            className="link"
+                          >
                                 <div className="inner-ctn">
                                     <div className="header">
                                         <div className="number">0{res.id + 1}</div>
@@ -101,11 +105,11 @@ class ProjectList extends React.Component {
                                         <div className="date">{res.date}</div>
                                     </div>
                                 </div>
-                            </NavLink>
+                            </Link>
                         </Hover>
                     </div>
                 </Reveal>
-            ))};
+            ))}
 
             </div>
         )

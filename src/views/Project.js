@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import vlec from '../images/vlec.png';
 import bonsound from '../images/bonsound.png';
@@ -73,15 +73,16 @@ class Project extends React.Component {
     }
 
     render() {
-        const { dataWorks } = this.state;
+        const { dataWorks, goBack } = this.state;
         return (
             <div className="page">
                 <div className="module">
                     {
                         <div className="project">
-                            <NavLink to={'/' + this.state.languageByUrl + '/'}>
+                            @TODO ButtonLink Component
+                            <Link to={{pathname: '/en/'}}>
                                 <div>back</div>
-                            </NavLink>
+                            </Link> 
                             <div className="project-header">
                                 {dataWorks.map((res, key) => (
                                     <div className="project-header-title" key={key}>

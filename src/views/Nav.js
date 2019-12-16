@@ -30,13 +30,9 @@ class Nav extends React.Component {
     render() {
         let lg = window.location.pathname.substring(1, 3);
         return (
-            <div className="page">
-                <div className="module">
-                    <nav className="nav">
-                        <div className="lg-change" onClick={this.changeLangVal}>{lg === 'en' ? 'FR' : (lg === 'fr' ? 'EN' : '')}</div>
-                    </nav>
-                </div>
-            </div >
+            <nav className="nav">
+                <div className="lg-change" onClick={this.changeLangVal}>{lg === 'en' ? 'FR' : (lg === 'fr' ? 'EN' : '')}</div>
+            </nav>
         );
     }
 }

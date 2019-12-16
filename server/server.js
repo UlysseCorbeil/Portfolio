@@ -34,10 +34,10 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 
 // dev
-//const dbRoute = 'mongodb://localhost:27017/Portfolio';
+const dbRoute = 'mongodb://localhost:27017/Portfolio';
 
 // prod
-const dbRoute = 'mongodb+srv://ulysse:fShsks12321@portfolio-vklaq.azure.mongodb.net/Portfolio';
+//const dbRoute = 'mongodb+srv://ulysse:fShsks12321@portfolio-vklaq.azure.mongodb.net/Portfolio';
 
 mongoose.connect(dbRoute, {
     useNewUrlParser: true

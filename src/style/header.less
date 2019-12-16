@@ -1,70 +1,86 @@
 .header-ctn {
-    .item {
-        .inner-ctn {
-            .header {
-                .intro {
-                    .img-container {
-                        position: relative;
-                        display: inline-block;
-                        height: auto;
-                    }
-                    .svgLine {
-                        position: absolute;
-                        right: 50%;
-                        top: -25%;
-                        overflow: visible;
-                        display: block;
-                        padding-bottom: 75%; 
-                        pointer-events: none;
-                        z-index: -1;
-                    }
-                    .blueCircle {
-                        position: absolute;
-                        left: 75%;
-                        top: -15%;
-                        overflow: visible;
-                        display: block;
-                        padding-bottom: 30%; 
-                        pointer-events: none;
-                        z-index: -1;
-                    }
-                    .RedCircle {
-                        position: absolute;
-                        left: -15%;
-                        top: 75%;
-                        overflow: visible;
-                        display: block;
-                        padding-bottom: 30%; 
-                        pointer-events: none;
-                        z-index: -1;
-                    }
-                    .surtitle {
-                        font-size: @medium;
-                        padding-top: @broad;
-                    }
-                    .surtitle-two {
-                        padding-top: @micro;
-                        font-size: @medium;
-                        padding-bottom: @broad;
-                    }
-                    .main-ctn {
-                        .flexbox;
-                        justify-content: center;
-                        margin-top: -@1_10;
-                        .title {
-                            font-size: @large;
-                            line-height: 100%;
-                            transform: translateY(25%);
-                            z-index: 4;
-                        }
-                        .image {
-                            width: @3_4;
-                            z-index: 3;
-                        }
-                    }
-                    
-                }
-            }
+    .header {
+        .img-container {
+            .flexbox;
+            position: relative;
+            width: @full;
+        }
+        .back-ctn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+        }
+        .svgLine {
+            position: absolute;
+            right: 50%;
+            top: -50%;
+            transform: scale(1.2);
+            overflow: visible;
+            display: block;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .blueCircle {
+            position: absolute;
+            left: 85%;
+            top: -15%;
+            #mq-min-width(@screen-xs,{
+              left: 75%;
+              top: -15%;
+            });
+            overflow: visible;
+            display: block;
+            padding-bottom: 30%; 
+            pointer-events: none;
+            z-index: -1;
+        }
+        .RedCircle {        
+          position: absolute;
+          left: 0%;
+          top: 80%;
+          #mq-min-width(@screen-xs,{
+            left: 15%;
+            top: 65%;
+          });
+          overflow: visible;
+          display: block;
+          padding-bottom: 30%; 
+          pointer-events: none;
+          z-index: -1;
+        }
+        .surtitle {
+          font-size: @medium;
+          padding-top: @broad;
+        }
+        .surtitle-two {
+          padding-top: @micro;
+          font-size: @medium;
+          padding-bottom: @broad;
+        }
+        .main-ctn {
+          .flexbox;
+          justify-content: center;
+          margin-top: -@1_10;
+          .title {
+            font-size: @bigger;
+            #mq-min-width(@screen-xs,{
+              font-size: @large;
+            });
+            line-height: 100%;
+            transform: translateY(25%);
+            z-index: 4;
+          }
+          .image {
+            margin-left: auto;
+            margin-right: auto;
+            #mq-min-width(@screen-xs,{
+              width: @1_2;
+            });
+            width: @3_4;
+            z-index: 3;
+          }
         }
     }
 }

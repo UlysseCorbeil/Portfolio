@@ -1,5 +1,4 @@
 .project-list {
-    padding-top: @broadest;
     .sectionTitle {
         font-size: @medium;
         margin-top: -@broad;
@@ -11,25 +10,13 @@
 
         margin-bottom: @broadest;
         margin-top: @broad;
-        margin-left: @broad;
-        margin-right: @broad;
 
         .project-item {
 
-            .project-image {
-                width: 60rem;
-                opacity: 0;
-                position: absolute;
-                left: 25%;
-                transform: scale(0.8);
-                transition: opacity @duration-long @ease-out-expo, transform @duration-short @ease-out-expo;
-            }
+            margin-left: @broad;
+            margin-right: @broad;
 
             &.is-hovered {
-              .project-image {
-                transform: scale(1);
-                opacity: 1;
-              }
             }
         }  
 

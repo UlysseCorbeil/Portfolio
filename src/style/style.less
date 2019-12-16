@@ -2,9 +2,10 @@
 @import './projet.less';
 @import './header.less';
 @import './404.less';
+@import './buttons.less';
 
 
-.site {
+#root {
   .nav {
     display: flex;
     width: @full;
@@ -26,12 +27,16 @@
         background-color: white;
         transform: scale(0.90) rotate(0deg) !important;
       }
-      width: 10%;
+      width: 20%;
+      #mq-min-width(@screen-xs,{
+        width: 10%;
+        border-radius: 9rem;
+      });
       position: fixed;
       top: @micro;
       right: @micro;
       transition: all 200ms ease-out;
-      border-radius: 9rem;
+      border-radius: 13rem;
     }
   }
   .transition-group {
@@ -78,5 +83,8 @@
     .module {
         padding-right:@security;
         padding-left:@security;
+        &.spacing {
+          padding-top: @broadest;
+        }
     }
 }

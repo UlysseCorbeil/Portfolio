@@ -1,0 +1,60 @@
+.button-main {
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+  .wrapper {
+
+      box-sizing: border-box;
+      width: 15%;
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      border-radius: 50%;
+      z-index: 1;
+
+    .shape {
+        transition: transform 250ms ease-out;
+        display: block;
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        background-color: @yellow;
+        border-radius: 50%;
+        #mq-min-width(@screen-xs,{
+           transform: scale(0.85);
+        });
+        transform: scale(1.5);
+    }
+
+    .content {
+      transition: transform 250ms ease-out;
+      white-space: normal;
+      word-wrap: break-word;
+      font-size: @smaller;
+      font-weight: lighter;
+      display: inline-block;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 0;
+      overflow: hidden;
+      #mq-min-width(@screen-xs,{
+        transform: scale(2) translateY(-20%);    
+      });
+      transform: translateY(-50%);
+    }
+    #mq-min-width(@screen-xs,{
+      &:hover {
+        .shape {
+            transform: scale(1);
+        }
+        .content {
+            transform: scale(1) translateY(-50%);
+        }
+      }
+
+    }); 
+  }
+}

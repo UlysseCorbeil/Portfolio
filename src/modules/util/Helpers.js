@@ -78,6 +78,19 @@ class Helpers {
     return string;
   };
 
+  static sanatizeVariable (v) {
+    return v === undefined ? null : v;
+  };
+
+  static formatDate (dateStr) {
+    let date = new Date(dateStr);
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = date.getDate();
+
+    return day + ' / ' + month + ' / ' + year;
+  };
+
 }
 
 export default Helpers;
