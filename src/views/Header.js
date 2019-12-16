@@ -29,7 +29,7 @@ class Header extends React.Component {
         this.getHeaderInfoFromDb();
 
         // last update
-        // this.getLastRepoUpdate();
+        this.getLastRepoUpdate();
 
         if (!!!this.state.intervalIsSet) {
             let interval = setInterval(this.getDataFromDb, 1000);
@@ -81,7 +81,7 @@ class Header extends React.Component {
 
     render() {
         const { dataHeader, date, languageByUrl } = this.state;
-       const formattedDate = Helpers.sanatizeVariable(Helpers.formatDate(date));
+        const formattedDate = Helpers.sanatizeVariable(Helpers.formatDate(date));
         return (
             <div className='header-ctn'>
                 {!!!this.state.done ? '' : (
@@ -93,7 +93,8 @@ class Header extends React.Component {
                                         <div className="img-container">
                                             <img className='image' src={image} alt='Ulysse' />
                                         </div>
-                                        <div className='end-content'>                                                                          <div className='last-update'>{languageByUrl === 'en' ? 'last update ' : 'dernière mise à jour '}{formattedDate}</div>
+                                        <div className='end-content'>
+                                          <div className='last-update'>{languageByUrl === 'en' ? 'last update ' : 'dernière mise à jour '}{formattedDate}</div>
                                           <div className='year'>{'/' + new Date().getFullYear()}</div>
                                         </div>
                                 </div>
