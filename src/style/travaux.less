@@ -17,7 +17,51 @@
             margin-right: @broad;
 
             &.is-hovered {
+              .button-container {
+                transform: scale(1);
+              }
             }
+            
+            .button-container {
+              transform: scale(0);
+              transition: transform 150ms ease-in;
+              width: @1_4;
+              #mq-min-width(@screen-xs,{
+                width: @1_5;                  
+              });
+
+              z-index: 100;
+              position: absolute;
+              text-align: center;
+              
+              .shape {
+                transition: transform 250ms ease-out;
+                display: block;
+                position: relative; 
+                width: 100%;
+                padding-bottom: 100%;
+                border-radius: @1_2;
+                background-color: @red;
+                
+              }
+
+              .content {
+                color: white;
+                transition: transform 250ms ease-out;
+                white-space: normal;
+                word-wrap: break-word;
+                font-size: @smaller;
+                font-weight: light;
+                display: inline-block;
+                position: absolute;
+                width: 100%;
+                top: 50%;
+                left: 0;
+                overflow: hidden;
+                transform: translateY(-50%);
+              }
+            }
+
         }  
 
         .inner-ctn {

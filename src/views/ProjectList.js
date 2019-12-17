@@ -88,12 +88,13 @@ class ProjectList extends React.Component {
                   rootMargin={'100px'}
                 >
                     <div className="project-wrapper">
-                        <Hover className="project-item">
-                          <Link to={{
+                        <Link to={{
                             pathname:'/' + languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'
                             }}
                             className="link"
                           >
+                            <Hover className="project-item">
+
                                 <div className="inner-ctn">
                                     <div className="header">
                                         <div className="number">0{res.id + 1}</div>
@@ -104,9 +105,10 @@ class ProjectList extends React.Component {
                                         <div className="roles">{res.roles}</div>
                                         <div className="date">{res.date}</div>
                                     </div>
+
                                 </div>
-                            </Link>
-                        </Hover>
+                            </Hover>
+                        </Link>
                     </div>
                 </Reveal>
             ))}

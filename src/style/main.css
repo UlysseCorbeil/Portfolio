@@ -170,6 +170,46 @@ html {
   margin-left: 7rem;
   margin-right: 7rem;
 }
+.project-list .project-wrapper .project-item.is-hovered .button-container {
+  transform: scale(1);
+}
+.project-list .project-wrapper .project-item .button-container {
+  transform: scale(0);
+  transition: transform 150ms ease-in;
+  width: 25%;
+  z-index: 100;
+  position: absolute;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .project-list .project-wrapper .project-item .button-container {
+    width: 15%;
+  }
+}
+.project-list .project-wrapper .project-item .button-container .shape {
+  transition: transform 250ms ease-out;
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  background-color: #EE0032;
+}
+.project-list .project-wrapper .project-item .button-container .content {
+  color: white;
+  transition: transform 250ms ease-out;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: calc(2rem * var(--type-factor));
+  font-weight: light;
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
 .project-list .project-wrapper .inner-ctn {
   padding-top: calc(1.5rem * var(--type-factor));
   padding-bottom: calc(1.5rem * var(--type-factor));
@@ -278,6 +318,7 @@ html {
 }
 .header-ctn .header .end-content .last-update {
   padding-top: 1rem;
+  margin-left: 3rem;
   width: 100%;
   font-size: calc(1.5rem * var(--type-factor));
 }
@@ -332,7 +373,7 @@ html {
 }
 @media screen and (min-width: 768px) {
   .header-ctn .header .main-ctn .image {
-    width: 55%;
+    width: 100%;
   }
 }
 .header-about-ctn .header-about .img-container {
@@ -586,7 +627,7 @@ html {
   padding-left: 10rem;
 }
 .page .module.spacing {
-  padding-top: 7rem;
+  padding-top: 1rem;
 }
 .project-list .fade-in-section {
   opacity: 0;
