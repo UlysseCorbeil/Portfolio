@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import ProjectList from './ProjectList';
 import Header from './Header';
 
+import WorkExperience from './WorkExperience';
 import ButtonMain from '../section/ButtonMain';
 
 class Home extends Component {
@@ -18,16 +19,16 @@ class Home extends Component {
     render() {
         const { languageByUrl } = this.state;
         return (
-            <div className="page">
-                <section className="header-wrapper module">
+            <React.Fragment>
+                <section className="header-wrapper">
                     <Header languageByUrl={languageByUrl} />
                 </section>
-                <section className="project-list-wrapper module spacing">
+                <section className="project-list-wrapper">
                     <ProjectList languageByUrl={languageByUrl} />
                     <ButtonMain url={'/' + languageByUrl + '/works'} content='All Projects'/>
-                    <div className="module spacing"></div>
+                    <WorkExperience/>
                 </section>
-            </div>
+            </React.Fragment>
         )
    }
 }

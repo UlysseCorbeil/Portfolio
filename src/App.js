@@ -33,9 +33,9 @@ class App extends React.Component {
                     </a>
                 </div>
 
-                <TransitionGroup className="transition-group">
+                <TransitionGroup className="transition-group page">
                     <CSSTransition key={location.key} timeout={{ enter: 250, exit: 500 }} classNames="page">
-                        <section className="route-section">
+                        <section className="route-section module spacing">
                             <Switch location={location}>
                                 <Route exact path={'/' + languageByUrl + '/'} component={() => <Home languageByUrl={languageByUrl} />} />
                                 <Route path={'/' + languageByUrl + '/jezabel-plamondon'} component={() => <Project projectKey={0} languageByUrl={languageByUrl} />} />

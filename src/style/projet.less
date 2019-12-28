@@ -1,18 +1,22 @@
 .project {
-    .header-img-wrapper {
+    .project-header {
+        padding-top: @broad;
         width: @full;
-        top: @broad;
-        right: @broad;
         display: flex;
 
-        .header-img-ctn {
+        .header-img-wrapper {
+          width: @full;
+          display: flex;
+
+          .header-img-ctn {
             position: relative;
             overflow: hidden;
             display: flex;
             width: @full;
-            padding-bottom: 150%;
-            .header-img-inner-ctn{
-                object-fit: cover;
+            padding-bottom: 100%;
+
+            .header-img-inner-ctn {
+              object-fit: cover;
 
                 .header-img{
                     position: absolute;
@@ -22,45 +26,62 @@
             }
         }
     }
-    .project-header {
-        display: flex;
-        .ctn {
+
+
+    .project-header-title {
+      width: @full;
+      
+      .ctn {
+        width: @full;
+        .flexbox;
+  
+        .title-ctn {
+            width: @full;
             display: flex;
-            flex-flow: column wrap;
-            height: @full;
-            .title-ctn {
-                width: @full;
-                margin-top: auto;
-                margin-bottom: auto;
+            z-index: 100;
+        
                 .nom-projet {
+                    position: absolute;
+                    top: 15%;
+                    left: 5%;
+                    line-height: 100%;
                     font-size: @biggest;
-                    width: @1_2;
+                    width: @3_4;
                 }
             }
-            .info-ctn {
-                display: flex;
-                flex-flow: column wrap;
-                margin-top: auto;
-            }
         }
+
     }
+
+}
+   
     .project-header-info {
-        .info-ctn {
-            display: flex;
-            width: @full;
-            border-bottom: 1px solid @black;
-            padding-bottom: @micro;
-            .item-left {
-                width: @1_2;
-            }
-            .item-right {
+       .info-ctn {   
+         display: flex;
+         width: @full;
+         border-bottom: 1px solid @black;
+         padding-bottom: @micro;
+         .item-left {
+           width: @1_2;
+           .year {
+             font-size: @small;
+           }
+           .nameLibelle {
+             font-size: @medium;
+           }
+           .name {
+             font-size: @small;
+           }
+         }
+         .item-right {
                 display: flex;
-                margin-top: auto;
                 width: @1_2;
                 .type {
+                    font-size: @medium;
                     display: flex;
                     width: @full;
-                    margin-left: auto;
+                    margin-top: auto;
+                    justify-content: flex-end;
                 }
             }
         }
