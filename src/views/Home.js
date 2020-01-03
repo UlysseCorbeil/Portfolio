@@ -26,6 +26,8 @@ class Home extends Component {
                 <section className="project-list-wrapper">
                     <ProjectList languageByUrl={languageByUrl} />
                     <ButtonMain url={'/' + languageByUrl + '/works'} content='All Projects'/>
+                </section>
+                <section className="work-experience-wrapper">
                     <WorkExperience/>
                 </section>
             </React.Fragment>

@@ -163,7 +163,7 @@ html {
 }
 .project-list .project-wrapper {
   cursor: pointer;
-  margin-bottom: 15rem;
+  margin-bottom: 7rem;
   margin-top: 7rem;
 }
 .project-list .project-wrapper .project-item {
@@ -563,6 +563,50 @@ html {
   .button-main .wrapper:hover .content {
     transform: scale(1) translateY(-50%);
   }
+}
+.work-experience-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+.work-experience-wrapper .title {
+  width: 100%;
+  font-size: calc(4rem * var(--type-factor));
+}
+.work-experience-wrapper .item-ctn {
+  display: flex;
+  width: 100%;
+  margin-left: -7rem;
+  margin-right: -7rem;
+}
+@media screen and (min-width: 768px) {
+  .work-experience-wrapper .item-ctn {
+    width: 50%;
+  }
+}
+.work-experience-wrapper .item-ctn .item {
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  display: flex;
+  flex-flow: row wrap;
+  width: full;
+}
+.work-experience-wrapper .item-ctn .item .image {
+  width: 25%;
+}
+.work-experience-wrapper .item-ctn .item .image img {
+  width: 100%;
+}
+.work-experience-wrapper .item-ctn .item .content {
+  transform: translateX(3rem);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.work-experience-wrapper .item-ctn .item .content p {
+  font-size: calc(2rem * var(--type-factor));
 }
 #root .nav {
   display: flex;

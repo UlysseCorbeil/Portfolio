@@ -11,25 +11,47 @@ class Project extends React.Component {
 
     render() {
         return (
-            <div className="experience">
-                
+            <React.Fragment>
                 <div className="title">Work Experience</div>
 
                 <div className="item-ctn">
-                    <div className="item">
 
-                        <div className="image">
-                            <img src={DHH}/>
+                    <a href="https://www.deuxhuithuit.com" target="_blank" className="link">
+                        <div className="item">
+
+                            <div className="image">
+                                <img src={DHH}/>
+                            </div>
+
+                            <div className="content">
+                                <p>Deux Huit Huit</p>
+                                <p>Web Developer</p>
+                                <p>2019</p>
+                            </div>
+
                         </div>
-
-                        <span>Deux Huit Huit</span>
-                        <span>Web Developer</span>
-                        <span>2019</span>
-
-                    </div>
+                    </a>
                 </div>
 
-            </div>
+                <div className="item-ctn">
+                    <a target="_blank" className="link">
+                        <div className="item">
+
+                            <div className="image">
+                                <img src={BANQ}/>
+                            </div>
+
+                            <div className="content">
+                                <p>BANQ</p>
+                                <p>IOS Web App (contract)</p>
+                                <p>2019</p>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+            </React.Fragment>
         );
     }
 }
