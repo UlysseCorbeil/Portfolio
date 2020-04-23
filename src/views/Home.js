@@ -11,21 +11,18 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            languageByUrl: this.props.languageByUrl
-        }
     }
 
     render() {
-        const { languageByUrl } = this.state;
+        
         return (
             <React.Fragment>
                 <section className="header-wrapper">
-                    <Header languageByUrl={languageByUrl} />
+                    <Header />
                 </section>
                 <section className="project-list-wrapper">
-                    <ProjectList languageByUrl={languageByUrl} />
-                    <ButtonMain url={'/' + languageByUrl + '/works'} content='All Projects'/>
+                    <ProjectList />
+                    <ButtonMain url={'/works'} content='All Projects'/>
                 </section>
                 <section className="work-experience-wrapper">
                     <WorkExperience/>
@@ -35,4 +32,4 @@ class Home extends Component {
    }
 }
 
-export default Home
+export default Home;

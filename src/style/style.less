@@ -11,8 +11,13 @@
   .nav {
     display: flex;
     width: @full;
-    justify-content: center;
-    & div {
+ //   justify-content: center;
+    max-width: @screen-xl;
+    margin-right:@security;
+    margin-left:@security;
+    & .item {
+      display: flex;
+      width: @1_4;
       cursor: pointer;
       padding-top: 2rem;
       font-size: @smaller;

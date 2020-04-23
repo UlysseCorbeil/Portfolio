@@ -13,7 +13,6 @@ class Project extends React.Component {
         super(props);
 
         this.state = {
-            languageByUrl: this.props.languageByUrl,
             pKey: this.props.projectKey,
             dataWorks: [],
             intervalIsSet: false
@@ -74,7 +73,7 @@ class Project extends React.Component {
             <div className="project">
                     {
                         <React.Fragment>
-                            <Link to={{pathname: '/en/'}}>
+                            <Link to={{pathname: '/'}}>
                                 <div>back</div>
                             </Link> 
                             <div className="project-header">

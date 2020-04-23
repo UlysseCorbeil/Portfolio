@@ -163,8 +163,8 @@ html {
 }
 .project-list .project-wrapper {
   cursor: pointer;
-  margin-bottom: 7rem;
-  margin-top: 7rem;
+  margin-bottom: 9rem;
+  margin-top: 9rem;
 }
 .project-list .project-wrapper .project-item {
   margin-left: 7rem;
@@ -566,6 +566,7 @@ html {
 }
 .work-experience-wrapper {
   width: 100%;
+  padding-top: 9rem;
   display: flex;
   flex-flow: row wrap;
 }
@@ -611,9 +612,13 @@ html {
 #root .nav {
   display: flex;
   width: 100%;
-  justify-content: center;
+  max-width: 1600px;
+  margin-right: 10rem;
+  margin-left: 10rem;
 }
-#root .nav div {
+#root .nav .item {
+  display: flex;
+  width: 25%;
   cursor: pointer;
   padding-top: 2rem;
   font-size: calc(2rem * var(--type-factor));

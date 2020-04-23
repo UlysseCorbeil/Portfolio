@@ -10,7 +10,6 @@ class ProjectList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            languageByUrl: this.props.languageByUrl,
             dataProjects: [],
             sectionTitle: [],
             intervalIsSet: false,
@@ -63,23 +62,21 @@ class ProjectList extends React.Component {
                 })
                 .then((res) => {
                     res.data.map(async (v) => {
-                        if (v.lg === this.state.languageByUrl) {
-                            this.setState({ sectionTitle: v })
-                        }
+                        this.setState({ sectionTitle: v })
                     })
                 })
         });
     }
 
     render() {
-        const { dataProjects, sectionTitle, languageByUrl } = this.state;
+        const { dataProjects, sectionTitle} = this.state;
 
         return (
             <div className="project-list">
 
               <div className="sectionTitle">{sectionTitle.title}</div>
 
-              {dataProjects.filter(res => res.lg === languageByUrl).map((res, key) => (
+              {dataProjects.map((res, key) => (
 
                 <Reveal 
                   className="fade-in-section"
@@ -89,7 +86,7 @@ class ProjectList extends React.Component {
                 >
                     <div className="project-wrapper">
                         <Link to={{
-                            pathname:'/' + languageByUrl + '/' + Helpers.cleanString(res.nomProjet) + '/'
+                            pathname:'/' + Helpers.cleanString(res.nomProjet) + '/'
                             }}
                             className="link"
                           >
