@@ -163,12 +163,52 @@ html {
 }
 .project-list .project-wrapper {
   cursor: pointer;
-  margin-bottom: 15rem;
-  margin-top: 7rem;
+  margin-bottom: 9rem;
+  margin-top: 9rem;
 }
 .project-list .project-wrapper .project-item {
   margin-left: 7rem;
   margin-right: 7rem;
+}
+.project-list .project-wrapper .project-item.is-hovered .button-container {
+  transform: scale(1);
+}
+.project-list .project-wrapper .project-item .button-container {
+  transform: scale(0);
+  transition: transform 150ms ease-in;
+  width: 25%;
+  z-index: 100;
+  position: absolute;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .project-list .project-wrapper .project-item .button-container {
+    width: 15%;
+  }
+}
+.project-list .project-wrapper .project-item .button-container .shape {
+  transition: transform 250ms ease-out;
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  background-color: #EE0032;
+}
+.project-list .project-wrapper .project-item .button-container .content {
+  color: white;
+  transition: transform 250ms ease-out;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: calc(2rem * var(--type-factor));
+  font-weight: light;
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  overflow: hidden;
+  transform: translateY(-50%);
 }
 .project-list .project-wrapper .inner-ctn {
   padding-top: calc(1.5rem * var(--type-factor));
@@ -197,48 +237,50 @@ html {
   padding-top: calc(1.5rem * var(--type-factor));
   padding-bottom: calc(1.5rem * var(--type-factor));
 }
-.project .header-img-wrapper {
+.project .project-header {
+  padding-top: 7rem;
   width: 100%;
-  top: 7rem;
-  right: 7rem;
   display: flex;
 }
-.project .header-img-wrapper .header-img-ctn {
+.project .project-header .header-img-wrapper {
+  width: 100%;
+  display: flex;
+}
+.project .project-header .header-img-wrapper .header-img-ctn {
   position: relative;
   overflow: hidden;
   display: flex;
   width: 100%;
-  padding-bottom: 150%;
+  padding-bottom: 100%;
 }
-.project .header-img-wrapper .header-img-ctn .header-img-inner-ctn {
+.project .project-header .header-img-wrapper .header-img-ctn .header-img-inner-ctn {
   object-fit: cover;
 }
-.project .header-img-wrapper .header-img-ctn .header-img-inner-ctn .header-img {
+.project .project-header .header-img-wrapper .header-img-ctn .header-img-inner-ctn .header-img {
   position: absolute;
   left: 0;
   right: 0;
 }
-.project .project-header {
-  display: flex;
-}
-.project .project-header .ctn {
-  display: flex;
-  flex-flow: column wrap;
-  height: 100%;
-}
-.project .project-header .ctn .title-ctn {
+.project .project-header .project-header-title {
   width: 100%;
-  margin-top: auto;
-  margin-bottom: auto;
 }
-.project .project-header .ctn .title-ctn .nom-projet {
-  font-size: calc(15rem * var(--type-factor));
-  width: 50%;
-}
-.project .project-header .ctn .info-ctn {
+.project .project-header .project-header-title .ctn {
+  width: 100%;
   display: flex;
-  flex-flow: column wrap;
-  margin-top: auto;
+  flex-flow: row wrap;
+}
+.project .project-header .project-header-title .ctn .title-ctn {
+  width: 100%;
+  display: flex;
+  z-index: 100;
+}
+.project .project-header .project-header-title .ctn .title-ctn .nom-projet {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  line-height: 100%;
+  font-size: calc(15rem * var(--type-factor));
+  width: 75%;
 }
 .project .project-header-info .info-ctn {
   display: flex;
@@ -249,15 +291,25 @@ html {
 .project .project-header-info .info-ctn .item-left {
   width: 50%;
 }
+.project .project-header-info .info-ctn .item-left .year {
+  font-size: calc(3rem * var(--type-factor));
+}
+.project .project-header-info .info-ctn .item-left .nameLibelle {
+  font-size: calc(4rem * var(--type-factor));
+}
+.project .project-header-info .info-ctn .item-left .name {
+  font-size: calc(3rem * var(--type-factor));
+}
 .project .project-header-info .info-ctn .item-right {
   display: flex;
-  margin-top: auto;
   width: 50%;
 }
 .project .project-header-info .info-ctn .item-right .type {
+  font-size: calc(4rem * var(--type-factor));
   display: flex;
   width: 100%;
-  margin-left: auto;
+  margin-top: auto;
+  justify-content: flex-end;
 }
 .header-ctn .header .img-container {
   display: flex;
@@ -278,6 +330,7 @@ html {
 }
 .header-ctn .header .end-content .last-update {
   padding-top: 1rem;
+  margin-left: 3rem;
   width: 100%;
   font-size: calc(1.5rem * var(--type-factor));
 }
@@ -332,7 +385,7 @@ html {
 }
 @media screen and (min-width: 768px) {
   .header-ctn .header .main-ctn .image {
-    width: 55%;
+    width: 100%;
   }
 }
 .header-about-ctn .header-about .img-container {
@@ -511,12 +564,61 @@ html {
     transform: scale(1) translateY(-50%);
   }
 }
+.work-experience-wrapper {
+  width: 100%;
+  padding-top: 9rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+.work-experience-wrapper .title {
+  width: 100%;
+  font-size: calc(4rem * var(--type-factor));
+}
+.work-experience-wrapper .item-ctn {
+  display: flex;
+  width: 100%;
+  margin-left: -7rem;
+  margin-right: -7rem;
+}
+@media screen and (min-width: 768px) {
+  .work-experience-wrapper .item-ctn {
+    width: 50%;
+  }
+}
+.work-experience-wrapper .item-ctn .item {
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  display: flex;
+  flex-flow: row wrap;
+  width: full;
+}
+.work-experience-wrapper .item-ctn .item .image {
+  width: 25%;
+}
+.work-experience-wrapper .item-ctn .item .image img {
+  width: 100%;
+}
+.work-experience-wrapper .item-ctn .item .content {
+  transform: translateX(3rem);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.work-experience-wrapper .item-ctn .item .content p {
+  font-size: calc(2rem * var(--type-factor));
+}
 #root .nav {
   display: flex;
   width: 100%;
-  justify-content: center;
+  max-width: 1600px;
+  margin-right: 10rem;
+  margin-left: 10rem;
 }
-#root .nav div {
+#root .nav .item {
+  display: flex;
+  width: 25%;
   cursor: pointer;
   padding-top: 2rem;
   font-size: calc(2rem * var(--type-factor));
@@ -560,10 +662,10 @@ html {
   transition: all 500ms cubic-bezier(0.48, 0.22, 0.4, 0.98);
 }
 #root .transition-group .page-exit {
+  opacity: 0;
+  z-index: 100;
   transform-origin: 50% 50%;
-  opacity: 1;
-  z-index: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, -5%, 0) scale(0.98);
   transition: all 500ms cubic-bezier(0.48, 0.22, 0.4, 0.98);
 }
 #root .transition-group .page-exit .page-exit-active {
@@ -586,7 +688,7 @@ html {
   padding-left: 10rem;
 }
 .page .module.spacing {
-  padding-top: 7rem;
+  padding-top: 1rem;
 }
 .project-list .fade-in-section {
   opacity: 0;

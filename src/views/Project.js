@@ -13,7 +13,6 @@ class Project extends React.Component {
         super(props);
 
         this.state = {
-            languageByUrl: this.props.languageByUrl,
             pKey: this.props.projectKey,
             dataWorks: [],
             intervalIsSet: false
@@ -63,32 +62,26 @@ class Project extends React.Component {
         let pKey = this.state.pKey;
         let rightImage = '';
         this.images.map((image, key) => (
-            pKey === key ? rightImage = image : undefined
+            pKey === key ? rightImage = image : null
         ))
         return rightImage;
     }
 
-    returnMatchedProjectData = (key, data) => {
-        return this.state.pKey === key ? data : undefined
-    }
-
     render() {
-        const { dataWorks, goBack } = this.state;
+        const { dataWorks, goBack, pKey} = this.state;
         return (
-            <div className="page">
-                <div className="module">
+            <div className="project">
                     {
-                        <div className="project">
-                            @TODO ButtonLink Component
-                            <Link to={{pathname: '/en/'}}>
+                        <React.Fragment>
+                            <Link to={{pathname: '/'}}>
                                 <div>back</div>
                             </Link> 
                             <div className="project-header">
-                                {dataWorks.map((res, key) => (
+                                {dataWorks.filter(res => res.id === pKey).map((res, key) => (
                                     <div className="project-header-title" key={key}>
                                         <div className="ctn">
                                             <div className="title-ctn">
-                                                <div className="nom-projet">{this.returnMatchedProjectData(res.id, res.nomProjet)}</div>
+                                                <div className="nom-projet">{res.nomProjet}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,25 +94,24 @@ class Project extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            {dataWorks.map((res, key) => (
+                            {dataWorks.filter(res => res.id === pKey).map((res, key) => (
                                 <div className="project-header-info" key={key}>
                                     <div className="info-ctn">
                                         <div className="item-left">
-                                            <div className="year">{this.returnMatchedProjectData(res.id, res.year)}</div>
-                                            <div className="nameLibelle">{this.returnMatchedProjectData(res.id, res.nameLibelle)}</div>
-                                            <div className="name">{this.returnMatchedProjectData(res.id, res.name[0])}</div>
-                                            <div className="text">{this.returnMatchedProjectData(res.id, res.text)}</div>
+                                            <div className="year">{res.year}</div>
+                                            <div className="nameLibelle">{res.nameLibelle}</div>
+                                            <div className="name">{res.name[key]}</div>
                                         </div>
                                         <div className="item-right">
-                                            <div className="type">{this.returnMatchedProjectData(res.id, res.type)}</div>
+                                            <div className="type">{res.type}</div>
                                         </div>
                                     </div>
+                                   <div className="text">{res.text}</div>
                                 </div>
                             ))}
-                        </div>
+                        </React.Fragment>
                     }
 
-                </div>
             </div>
         );
     }

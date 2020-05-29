@@ -1,0 +1,45 @@
+.work-experience-wrapper {
+    width: @full;
+    padding-top: @broader;
+    .flexbox;
+    .title {
+        width: @full;
+        font-size: @medium;
+    }
+
+    .item-ctn {
+        display: flex;
+        width: @full;
+        #mq-min-width(@screen-xs,{
+            width: @1_2; 
+        });
+        margin-left: -@broad;
+        margin-right: -@broad;
+
+        .item {
+            width: @full;
+            padding-top: @nano;
+            padding-bottom: @nano;
+            margin-left: @broadest;
+            margin-right: @broadest;
+            .flexbox;
+            width: full;
+
+            .image {
+                width: @1_4;
+                img {
+                    width: @full;
+                }
+            }
+
+            .content {
+                transform: translateX(@nano);
+                margin-top: auto;
+                margin-bottom: auto;
+                p {
+                    font-size: @smaller;
+                }
+            }
+        }
+    }
+}

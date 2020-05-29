@@ -13,7 +13,6 @@ class HeaderAbout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            languageByUrl: this.props.languageByUrl,
             dataHeader: [],
             intervalIsSet: false,
             done: undefined
@@ -50,9 +49,7 @@ class HeaderAbout extends React.Component {
                 })
                 .then((res) => {
                     res.data.map(async (v) => {
-                        if (v.lg === this.state.languageByUrl) {
-                            this.setState({ dataHeader: v })
-                        }
+                        this.setState({ dataHeader: v })
                     })
                 })
         });

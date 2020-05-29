@@ -3,7 +3,7 @@
  *
  *  - Needs to be directly wrapping element
  *  - Works with relative, absolute and fixed elements
- *  - params : 
+ *  - params :
  *
  *      tasks : object containing an array of the tasks you which to apply to the element.
  *          - rotate
@@ -39,7 +39,7 @@ class TransformOnScroll extends React.Component {
             rotateVal: 0,
             prevScroll: window.scrollY,
             rotateSmoothValue: props.rotateSpeed === undefined ? 0 : props.rotateSpeed,
-          
+
             // scale
             scaleVal: 1,
             initialScale: props.initialScale === undefined ? 0: props.initialScale,
@@ -143,7 +143,6 @@ class TransformOnScroll extends React.Component {
 
         }
     }
-    
 
     resetVal() {
         this.setState({
@@ -160,16 +159,16 @@ class TransformOnScroll extends React.Component {
         };
 
         const transformAttr = { transform: `
-            rotate(${rotateVal}deg) 
+            rotate(${rotateVal}deg)
             scale(${scaleVal})
-            translate3d(${0}px, ${-translateY}px, ${0}px)  
+            translate3d(${0}px, ${-translateY}px, ${0}px)
             `
         };
 
         const childrenWithProps = React.Children.map(this.props.children, child =>
             React.cloneElement(child, { style: transformAttr })
         );
-        
+
         return (
             <div style={style}>
                 {childrenWithProps}

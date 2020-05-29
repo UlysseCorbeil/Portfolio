@@ -4,32 +4,32 @@ import React, { Component } from 'react';
 import ProjectList from './ProjectList';
 import Header from './Header';
 
+import WorkExperience from './WorkExperience';
 import ButtonMain from '../section/ButtonMain';
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            languageByUrl: this.props.languageByUrl
-        }
     }
 
     render() {
-        const { languageByUrl } = this.state;
+        
         return (
-            <div className="page">
-                <section className="header-wrapper module">
-                    <Header languageByUrl={languageByUrl} />
+            <React.Fragment>
+                <section className="header-wrapper">
+                    <Header />
                 </section>
-                <section className="project-list-wrapper module spacing">
-                    <ProjectList languageByUrl={languageByUrl} />
-                    <ButtonMain url={'/' + languageByUrl + '/works'} content='All Projects'/>
-                    <div className="module spacing"></div>
+                <section className="project-list-wrapper">
+                    <ProjectList />
+                    <ButtonMain url={'/works'} content='All Projects'/>
                 </section>
-            </div>
+                <section className="work-experience-wrapper">
+                    <WorkExperience/>
+                </section>
+            </React.Fragment>
         )
    }
 }
 
-export default Home
+export default Home;

@@ -15,7 +15,6 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            languageByUrl: this.props.languageByUrl,
             dataHeader: [],
             intervalIsSet: false,
             date: '',
@@ -27,9 +26,6 @@ class Header extends React.Component {
 
         // data init
         this.getHeaderInfoFromDb();
-
-        // last update
-        this.getLastRepoUpdate();
 
         if (!!!this.state.intervalIsSet) {
             let interval = setInterval(this.getDataFromDb, 1000);
@@ -43,22 +39,6 @@ class Header extends React.Component {
             this.setState({ intervalIsSet: null });
         }
     }
-    
-    getLastRepoUpdate() {
-      fetch(
-        "https://api.github.com/repos/ulyssecorbeil/portfolio/branches/master"
-      )
-        .then(response => {
-          response.json().then(json => {
-            this.setState({
-              date: json.commit.commit.author.date
-            });
-          });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
 
     getHeaderInfoFromDb = async () => {
         setTimeout(() => {
@@ -71,35 +51,55 @@ class Header extends React.Component {
                 })
                 .then((res) => {
                     res.data.map(async (v) => {
-                        if (v.lg === this.state.languageByUrl) {
-                            this.setState({ dataHeader: v })
-                        }
+                        this.setState({ dataHeader: v })
                     })
                 })
         });
     }
 
     render() {
-        const { dataHeader, date, languageByUrl } = this.state;
-        const formattedDate = Helpers.sanatizeVariable(Helpers.formatDate(date));
+        const { dataHeader, date } = this.state;
+        const formattedDate = Helpers.sanatizeVariable(Helpers.formatDate(document.lastModified));
         return (
             <div className='header-ctn'>
                 {!!!this.state.done ? '' : (
                             <div className='header'>
-                                    <div className='surtitle'>{dataHeader.surtitle}</div>
-                                    <div className='surtitle-two'>{dataHeader.surtitleTwo}</div>
-                                    <div className='main-ctn'>
-                                        <div className='title'>{dataHeader.title}</div>
-                                        <div className="img-container">
-                                            <img className='image' src={image} alt='Ulysse' />
-                                        </div>
-                                        <div className='end-content'>
-                                          <div className='last-update'>{languageByUrl === 'en' ? 'last update ' : 'dernière mise à jour '}{formattedDate}</div>
-                                          <div className='year'>{'/' + new Date().getFullYear()}</div>
-                                        </div>
-                                </div>
+                              <div className='surtitle'>{dataHeader.surtitle}</div>
+                              <div className='surtitle-two'>{dataHeader.surtitleTwo}</div>
 
-                    </div>
+                                <div className='main-ctn'>
+                                  <div className='title'>{dataHeader.title}</div>
+
+                                  <TransformOnScroll
+                                    tasks={['translate']}
+                                    translateSpeed={5}
+                                    translateY={15}
+                                  >
+                                    <div className="img-container">
+                                      <img className='image' src={image} alt='Ulysse' />
+                                    </div>
+                                  </TransformOnScroll> 
+
+                                    <div className='end-content'>
+                                      
+                                      <TransformOnScroll
+                                        tasks={['translate']}
+                                        translateSpeed={5}
+                                        translateY={15}
+                                      >
+                                        <div className='last-update'>{'last update '}{formattedDate}</div>
+                                      </TransformOnScroll>
+                                      
+                                      <TransformOnScroll
+                                        tasks={['translate']}
+                                        translateSpeed={3}
+                                        translateY={35}
+                                      >
+                                        <div className='year'>{'/' + new Date().getFullYear()}</div>
+                                      </TransformOnScroll>
+                                    </div>
+                                </div>
+                  </div>
                 )}
             </div>
         );

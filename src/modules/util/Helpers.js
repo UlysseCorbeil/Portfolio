@@ -98,6 +98,15 @@ class Helpers {
     return day + ' / ' + month + ' / ' + year;
   };
 
+  static isCursorInside (e, rect) {
+
+    if (e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom) {
+            return true;
+    }
+    return false;
+
+  };
 }
 
 export default Helpers;
