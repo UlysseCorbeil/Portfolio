@@ -67,7 +67,7 @@ class App extends Component {
                 <Switch location={location}>
 
                   <Route exact path={'/'} component={() => <Home />} />
-                  <Route path={'/project'} component={() => <Project />} />
+                  {/* <Route path={'/project'} component={() => <Project />} /> */}
                   <Route component={() => <ErrorPage />} />
                 </Switch>
               </section>
