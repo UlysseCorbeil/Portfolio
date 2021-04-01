@@ -6,10 +6,12 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import Reset from './styles/reset';
 import Home from './components/Home';
+import ErrorPage from './components/ErrorPage';
 import Project from './components/Project';
 
 const AppContainer = styled.section`
     width: 100%;
+
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -45,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
         transform: translate3d(0, -5%, 0) scale(0.98);
       }
     }
+
 `;
 
 
@@ -65,7 +68,7 @@ class App extends Component {
 
                   <Route exact path={'/'} component={() => <Home />} />
                   <Route path={'/project'} component={() => <Project />} />
-                  {/* <Route component={() => <ErrorPage />} /> */}
+                  <Route component={() => <ErrorPage />} />
                 </Switch>
               </section>
             </CSSTransition>

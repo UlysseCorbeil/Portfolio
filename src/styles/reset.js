@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Reset = css`
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
@@ -27,6 +28,12 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
 /* make sure to set some focus styles for accessibility */
 :focus {
     outline: 0;
@@ -39,6 +46,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
+    background-color: #2E3440;
 	line-height: 1;
 }
 
